@@ -323,6 +323,10 @@ function App() {
                 <Label>Recent photo</Label>
                 <Input type="file" name="recentphoto" value={form.recentphoto} onChange={handleChange} />
               </Col>
+              <Col md={6}>
+                <Label>Recent photo</Label>
+                <Input type="file" name="recentphoto" value={form.recentphoto} onChange={handleChange} />
+              </Col>
             </Row>
             <center><Button className="mt-3" onClick={handleAdd}>Submit</Button></center>
           </CardBody>
