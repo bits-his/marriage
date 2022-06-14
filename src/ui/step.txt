@@ -1,0 +1,234 @@
+import React, { useState, useContext } from "react";
+import { Row, Col, Card, CardBody } from "reactstrap";
+import NavigationBar1 from "../../landing/navbar1";
+import { CustomForm } from "../../UI";
+import FormWrapper from "../../UI/FormWraper";
+import Form from "./Form";
+import { api } from "../../config/apiUrl";
+import { useHistory } from "react-router-dom";
+import { UserContext } from "../../contextApi/user_context";
+
+function Investor_registration() {
+  const [name, setName] = useContext(UserContext);
+  const history = useHistory();
+  const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({
+    surname: "",
+    firstname: "",
+    othername: "",
+    date_of_birth: "",
+    telephone_no: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    mobile_no: "",
+    home_address: "",
+    main_bankers: "",
+    personal_account_no: "",
+    residential_status: "",
+
+    employment_status: "",
+    name_of_employers: "",
+    what_sector_does_your_employer: "",
+    how_long_have_you_work_here: "",
+    what_you_role_designation: "",
+    are_you_a_principal_director_in_the_business: "",
+    owner_structure: "",
+    what_is_you_share_holding: "",
+    what_is_the_source_of_funds_for_proposed_investment: "",
+    investment: "",
+    do_you_hold_a_position_in_public_office: "",
+    if_yes_please_state_position: "",
+    are_you_the_beneficial_owner_of_investment_funds: "",
+    role: "investor",
+  });
+
+  const handleFirstSubmit = () => {
+    fetch(
+      `${api}/borrower_registration`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...form,
+          confirm_approval: false,
+        }),
+      },
+      setLoading(true)
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        if (data.success) {
+          localStorage.setItem("key", JSON.stringify(data.token));
+          setName(data.user);
+          // alert("Registered Successfully");
+          history.push("/dashboard/invest");
+        } else {
+          alert(data.msg);
+          setLoading(false);
+        }
+      })
+
+      .catch((err) => {
+        alert(err);
+        setLoading(false);
+      });
+  };
+  const handleSubmit = () => {
+    handleFirstSubmit();
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+  const fields = [
+    {
+      label: "Surname",
+      type: "text",
+      col: "4",
+      name: "surname",
+      value: form.surname,
+    },
+    {
+      label: "First Name",
+      type: "text",
+      col: "4",
+      name: "firstname",
+      value: form.firstname,
+    },
+    {
+      label: "Others Name",
+      type: "text",
+      col: "4",
+      name: "othername",
+      value: form.othername,
+    },
+    {
+      label: "Date of Birth",
+      type: "date",
+      col: "4",
+      name: "date_of_birth",
+      value: form.date_of_birth,
+    },
+    {
+      label: "Telephone Number",
+      type: "number",
+      col: "4",
+      name: "telephone_no",
+      value: form.telephone_no,
+    },
+    {
+      label: "Email",
+      type: "email",
+      col: "4",
+      name: "email",
+      value: form.email,
+    },
+
+    {
+      label: "Password",
+      type: "password",
+      col: "4",
+      name: "password",
+      value: form.password,
+    },
+
+    {
+      label: "Confirm Password",
+      type: "password",
+      col: "4",
+      name: "confirm_password",
+      value: form.confirm_password,
+    },
+    {
+      label: "Mobile Number",
+      type: "number",
+      col: "4",
+      name: "mobile_no",
+      value: form.mobile_no,
+    },
+    {
+      label: "Home Address",
+      type: "text",
+      col: "4",
+      name: "home_address",
+      value: form.home_address,
+    },
+    {
+      label: "Main Bankers",
+      type: "text",
+      col: "4",
+      name: "main_bankers",
+      value: form.main_bankers,
+    },
+    {
+      label: "Personal Account Number",
+      type: "text",
+      col: "4",
+      name: "personal_account_no",
+      value: form.personal_account_no,
+    },
+    {
+      label: "Residential Status",
+      type: "select",
+      options: ["owned", "rented"],
+      col: "4",
+      name: "residential_status",
+      value: form.residential_status,
+    },
+  ];
+
+  //  const handleChange = () => {
+
+  //  }
+  return (
+    <>
+      <Row></Row>
+      <NavigationBar1 />
+
+      <span style={{ display: "none" }}>{name.email}</span>
+
+      <Row style={{ margin: 0, padding: 0 }}>
+        <Col md="1"></Col>
+
+        <Col
+          md="10"
+          className="mb-5"
+          style={{ marginTop: "80px", marginBottom: "20px" }}
+        >
+          <center style={{ color: "rgb(137, 137, 137)", fontSize: "30px" }}>
+            <b>Investor Registration</b>
+          </center>
+          <Card style={{ backgroundColor: "rgb(79, 38, 159)", color: "white" }}>
+            <CardBody>
+              <FormWrapper
+                steps={["Personal Information", "Type Of Business Sector"]}
+                handleSubmit={handleSubmit}
+                loading={loading}
+              >
+                <CustomForm
+                  fields={fields}
+                  handleChange={handleChange}
+                  form={form}
+                />
+                <Form form={form} handleChange={handleChange} />
+              </FormWrapper>
+            </CardBody>
+          </Card>
+        </Col>
+
+        <Col md="1"></Col>
+      </Row>
+
+      <Row></Row>
+    </>
+  );
+}
+
+export default Investor_registration;
