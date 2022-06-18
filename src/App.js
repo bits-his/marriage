@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { Card, CardHeader, CardBody, Row, Col, Button, Input, Label, Container, Table, } from "reactstrap"
 import FormWrapper from "./ui/FormWrapper";
 import './index.css';
-
+import React from 'react'
+import React, { useState } from "react";
+import { Card, CardHeader, CardBody, Row, Col, Button, Input, Label, Container, Table, } from "reactstrap"
+import { questionsData } from "./data";
+import CustomRadio from "./ui/CustomRadio";
+import FormWrapper from "./ui/FormWrapper";
 
 
 function App() {
@@ -60,8 +65,9 @@ function App() {
   const [form, setForm] = useState(_form)
   const [data, setData] = useState([])
 
-  const handleChange = ({ target: { name, value } }) =>
-    setForm((p) => ({ ...p, [name]: value }));
+  const handleChange = ({ target: { name, value } }) =>{
+    setForm((p) => ({ ...p, [name]: value }))};
+
 
 
   const handleAdd = () => {
@@ -84,6 +90,7 @@ function App() {
 
   return (
     <div className="body">
+      {/* {JSON.stringify(form)} */}
       <Container>
         <FormWrapper
           steps={["SADIQ", "NAGUDU", "NUSAIBA"]}
@@ -116,51 +123,23 @@ function App() {
             </Col>
 
             <Col md={6} className="mt-3">
-              <h5>Are you currently working or in school?</h5>
-            </Col>
-            <Col md={6}>
-            </Col>
-            <Col md={4}>
-              <Input type="radio" name="school"
-                value={form.school}
-                onChange={handleChange} />
-              <Label>School</Label>
-            </Col>
-            <Col md={4}>
+              <CustomRadio 
+              name='school'
+              value={form.school}
+              label="Are you currently working or in school?"
+              options={[
+              { name: 'School', label: 'School' },
+              { name: 'Working', label: 'Working' },
+              { name: 'Both', label: 'Both' },
+              { name: 'None', label: 'None' },
+              { name: 'Other', label: 'Other' }
+            ]}
+              onChange={handleChange}
+              />
 
-              <Input type="radio" name="working"
-                value={form.working}
-                onChange={handleChange} />
-              <Label>Working</Label>
             </Col>
-            <Col md={4}>
+          
 
-              <Input type="radio" name="both"
-                value={form.both}
-                onChange={handleChange} />
-              <Label>Both</Label>
-            </Col>
-            <Col md={4}>
-
-              <Input type="radio" name="none"
-                value={form.none}
-                onChange={handleChange} />
-              <Label>None</Label>
-            </Col>
-            <Col md={4}>
-
-              <Input type="radio" name="na"
-                value={form.na}
-                onChange={handleChange} />
-              <Label>N/A</Label>
-            </Col>
-
-            <Col md={4}>
-              <Input type="radio" name="other"
-                value={form.other}
-                onChange={handleChange} />
-              <Label>Other</Label>
-            </Col>
             <Col md={6} className="mt-3">
               <h5>Do you drink or smoke? please be honest.</h5>
             </Col>
@@ -470,4 +449,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
