@@ -19,7 +19,7 @@ nav li {
     padding: 0;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 103%;
     z-index: 1;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.05);
     /* position: sticky; */
@@ -76,7 +76,7 @@ nav li {
 }
 
 .col2 button {
-    background-color: rgb(243, 112, 33);
+    background-color: #dc4225;
     color: white;
     border: none;
     height: 40px;
@@ -89,7 +89,7 @@ nav li {
 }
 
 .col2 button:hover {
-    background-color: rgb(212, 106, 40);
+    background-color: rgb(167, 72, 13);
 }
 
 .btn:focus {

@@ -29,7 +29,7 @@ function Signin() {
   const handleAdd = (e) => {
     e.preventDefault()
     console.log(form)
-    fetch("http://localhost:34567/api/sing_up", {
+    fetch("http://192.168.43.141:34567/api/sing_up", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -41,7 +41,7 @@ function Signin() {
     }
     ).then((raw) => raw.json())
       .then(() => {
-        alert("Account created successfully, go to login")
+        alert("Account created successfully")
         navigate("/home")
 
       })
@@ -63,7 +63,7 @@ function Signin() {
             <Col md={10}>
 
               <Card className="p-5 m-1 signin-card" style={{ borderRadius: 20, border: 'none' }}>
-                <center><h3>SignUp</h3></center>
+                <center><h3 className="signup">Sign Up</h3></center>
                 <Row>
                   <Col md={12}>
                     <Label>Full Nama</Label>
@@ -112,27 +112,35 @@ function Signin() {
                       <option>29</option>
                     </Input>
                   </Col>
+                  <Col md={12}>
                   <Label>Email</Label>
                   <Input type="email" placeholder="Email"
                     className="mb-4" name="email"
                     value={form.email} onChange={handleChange} />
+                  </Col>
+                  <Col md={12}>
                   <Label>Password</Label>
                   <Input type="password" placeholder="Password"
                     className="mb-4" name="password"
                     value={form.password}
                     onChange={handleChange} />
+                  </Col>
 
                   <center>
                     <p>Already have an account?
-                      <b style={{ fontSize: 15, cursor: "pointer" }} 
-                      onClick={() => navigate("/Signin")}>
-                         Long In
-                      </b></p>
+                      <b style={{ fontSize: 15, cursor: "pointer" }}
+                        onClick={() => navigate("/Signin")}
+                        >
+                         Logn In
+                      </b> here!</p>
                     <Button
                       onClick={handleAdd}
                       className="mt-3"
-                      style={{ width: "5rem" }}>
-                      SignUp
+                      style={{
+                        backgroundColor: "#dc4225", width: "6rem",
+                        border: "none", borderRadius: "5px"
+                      }}>
+                      Sign Up
                     </Button>
                   </center>
                 </Row>

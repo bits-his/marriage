@@ -5,11 +5,10 @@ import ngd from './ngd.jpg';
 
 import { Card, CardBody, Container, Row, Col, Input, Label, Button } from "reactstrap"
 
-function Signin() {
+function Forgotpassword() {
 
   const navigate = useNavigate()
   const _form = {
-    email: "",
     password: "",
   }
 
@@ -22,7 +21,7 @@ function Signin() {
   const handleAdd = (e) => {
     e.preventDefault()
     console.log(form)
-    fetch("http://localhost:34567/api/long_in", {
+    fetch("http://localhost:34567/api/#", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -45,39 +44,21 @@ function Signin() {
   }
 
   return (
-    <div className="body">
-      {/* <Container style={{marginTop: "8rem"}}> */}
-      <Row className="m-0 p-0" style={{ marginTom: "10em" }}>
+    <div className="body" >
+      <Row className="m-0 p-0" >
 
         <Col md={6} className="left">
         </Col>
-        <Col md={6} className='right' style={{ marginTop: "7rem", }}>
+        <Col md={6} className='right' style={{marginTop: "10rem",}}>
           <Row>
             <Col md={1}></Col>
             <Col md={10}>
 
-              <Card className="p-5 m-1 signin-card" style={{ borderRadius: 20, border: 'none', height: "24em" }}>
-                <center><h3 className="signup">Sign In</h3></center>
+              <Card className="p-5 m-1 signin-card" style={{ borderRadius: 20, border: 'none' }}>
+                <center><h5 className="signup">Enter your email or </h5></center>
                 <Input type="email" placeholder="Email" className="mb-4" name="email"
                   value={form.email} onChange={handleChange} />
-                {/* <Label>password</Label> */}
-                <Input type="password" placeholder="Password" className="mb-4" name="password"
-                  value={form.password} onChange={handleChange} />
-                <Row>
-                  <Col md={6}>          
-                    <label className="mt-3" style={{ fontSize: 12 }}>
-                      <input type="checkbox" /> Remember Password
-                    </label>
-                  </Col>
-
-                  <Col md={6}>
-                    <p
-                      style={{ fontSize: 12, float: "right", cursor: "pointer" }}
-                      onClick={() => navigate("/forgotpassword")}>
-                      Forgot password?
-                    </p>
-                  </Col>
-                </Row>
+               
                 <center>
                   <Button
                     onClick={handleAdd}
@@ -86,7 +67,7 @@ function Signin() {
                       backgroundColor: "#dc4225", width: "5rem",
                       border: "none", borderRadius: "5px"
                     }}>
-                    Sign In
+                    Submit
                   </Button>
                 </center>
               </Card>
@@ -100,4 +81,4 @@ function Signin() {
     </div>
   )
 }
-export default Signin;
+export default Forgotpassword;

@@ -13,6 +13,7 @@ import {
    Routes,
    Route,
    } from "react-router-dom";
+import Forgotpassword from './Signup/Forgotpassword';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
       {/* <Route path="app" element={<App />} /> */}
       <Route path="/" element={<Signup />}/>
       <Route path="/Signin" element={<Signin />}/>
+      <Route path="/forgotpassword" element={<Forgotpassword />}/>
       <Route path="home" element={<Home />} />
       <Route path="navbar" element={<NavBar />} />
       <Route path="/registration" element={<Registration />} exact/>

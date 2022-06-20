@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./navbar.css"
-// import Signup from "./sign.css"
+import "./home.css"
 import {
   ChevronDown,
   HelpCircle,
@@ -20,6 +20,15 @@ import {
 import logo from "./logo.jpg";
 import { useNavigate } from "react-router";
 export default function Home({ cart = [] }) {
+
+  const _form = {
+    search: "",
+  }
+const [form, setForm] = useState (_form)
+const [data, useData] = useState ([])
+  
+  const handleChange = ({ target: { name, value } }) =>
+    setForm((p) => ({ ...p, [name]: value }));
   const [open, setOpen] = useState(false);
   const toggle = () => {
     setOpen(!open);
@@ -30,7 +39,7 @@ export default function Home({ cart = [] }) {
   };
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="body">
       <Row className="nav-row">
         <Col md={2} className="col1">
           <img
@@ -41,14 +50,14 @@ export default function Home({ cart = [] }) {
         </Col>
         <Col md={6} className="col2 text-center">
           <div className="search">
-            <input placeholder="Search item here" />
+            <input placeholder="Search" name="search" value={form.search} onChange={handleChange}/>
             <span>
               <Search className="icon" />
             </span>
             <button>Search</button>
           </div>
         </Col>
-        <Col md={4} className="col3">
+        <Col md={4} className="col3 ">
           <nav>
             <ul>
               <li>
