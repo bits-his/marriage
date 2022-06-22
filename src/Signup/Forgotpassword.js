@@ -21,7 +21,7 @@ function Forgotpassword() {
   const handleAdd = (e) => {
     e.preventDefault()
     console.log(form)
-    fetch("http://localhost:34567/api/#", {
+    fetch("http://192.168.43.141/api/#", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

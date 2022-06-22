@@ -68,7 +68,7 @@ function Signin() {
                   <Col md={12}>
                     <Label>Full Nama</Label>
                     <Input type="text" placeholder="full Name"
-                      className="mb-4" name="username"
+                      className="mb-4 signup-input" name="username"
                       value={form.username}
                       onChange={handleChange} />
                   </Col>
@@ -77,7 +77,7 @@ function Signin() {
                     <Input type="select" name="i_m_a"
                       value={form.i_m_a}
                       onChange={handleChange}>
-                      <option>---select---</option>
+                      <option>plase select</option>
                       <option>Male</option>
                       <option>Female</option>
                     </Input>
@@ -87,7 +87,7 @@ function Signin() {
                     <Input type="select" name="i_m_looking_for"
                       value={form.i_m_looking_for}
                       onChange={handleChange}>
-                      <option>---select---</option>
+                      <option>plase select</option>
                       <option>Male</option>
                       <option>Female</option>
                     </Input>
@@ -97,7 +97,7 @@ function Signin() {
                     <Input type="select" name="age"
                       value={form.age}
                       onChange={handleChange}>
-                      <option>---select---</option>
+                      <option>plase select</option>
                       <option>18</option>
                       <option>19</option>
                       <option>20</option>
@@ -113,32 +113,34 @@ function Signin() {
                     </Input>
                   </Col>
                   <Col md={12}>
-                  <Label>Email</Label>
-                  <Input type="email" placeholder="Email"
-                    className="mb-4" name="email"
-                    value={form.email} onChange={handleChange} />
+                    <Label>Email</Label>
+                    <Input type="email" placeholder="Email"
+                      className="mb-4" name="email"
+                      value={form.email} onChange={handleChange} />
                   </Col>
                   <Col md={12}>
-                  <Label>Password</Label>
-                  <Input type="password" placeholder="Password"
-                    className="mb-4" name="password"
-                    value={form.password}
-                    onChange={handleChange} />
+                    <Label>Password</Label>
+                    <Input type="password" placeholder="Password"
+                      className="mb-4" name="password"
+                      value={form.password}
+                      onChange={handleChange} />
                   </Col>
 
                   <center>
-                    <p>Already have an account?
-                      <b style={{ fontSize: 15, cursor: "pointer" }}
+                    <p style={{ fontSize: 12, color: 'rgb(125, 34, 43)' }}>Already have an account?
+                      <span style={{ fontSize: 12, cursor: "pointer" }}
                         onClick={() => navigate("/Signin")}
-                        >
-                         Logn In
-                      </b> here!</p>
+                      >
+                        Logn In
+                      </span> here!</p>
                     <Button
                       onClick={handleAdd}
-                      className="mt-3"
+                      className=" s-btn"
                       style={{
-                        backgroundColor: "#dc4225", width: "6rem",
-                        border: "none", borderRadius: "5px"
+                        width: "6rem",
+                        border: "none", borderRadius: "5px",
+                        backgroundColor: 'rgb(125, 34, 43)',
+                        color: "white"
                       }}>
                       Sign Up
                     </Button>

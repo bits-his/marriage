@@ -22,7 +22,7 @@ function Signin() {
   const handleAdd = (e) => {
     e.preventDefault()
     console.log(form)
-    fetch("http://localhost:34567/api/long_in", {
+    fetch("http://192.168.43.141:34567/api/long_in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -71,20 +71,24 @@ function Signin() {
                   </Col>
 
                   <Col md={6}>
-                    <p
-                      style={{ fontSize: 12, float: "right", cursor: "pointer" }}
+                    <span
+                      style={{ fontSize: 12, float: "right", cursor: "pointer", 
+                      fontSize: 12, color: 'rgb(125, 34, 43)'
+                    }}
                       onClick={() => navigate("/forgotpassword")}>
                       Forgot password?
-                    </p>
+                    </span>
                   </Col>
                 </Row>
                 <center>
                   <Button
                     onClick={handleAdd}
-                    className="mt-3"
+                    className="mt-3 btn"
                     style={{
                       backgroundColor: "#dc4225", width: "5rem",
-                      border: "none", borderRadius: "5px"
+                      border: "none", borderRadius: "5px",
+                      backgroundColor: 'rgb(125, 34, 43)',
+                      color: "white"
                     }}>
                     Sign In
                   </Button>

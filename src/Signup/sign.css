@@ -9,7 +9,7 @@
     opacity: .6;
 }
 .signup{
-    color: #dc4225;
+    color: rgb(125, 34, 43);
     border: none;
     border-radius: 5px;
 }
@@ -26,10 +26,26 @@
 
 .right {
     position: relative;
+
 }
 
 .signin-card {
     position: absolute;
     top: 7%;
     border-radius: 150px;
+    background-image: linear-gradient(to bottom right, #ca8476,#ffffff);
+    color:white;
+}
+.s-btn{
+    background-color: rgb(125, 34, 43);
+}
+.s-btn:focus{
+    outline: none;
+}
+.dp{
+    width: 50px;
+    border-radius: 50px;
+}
+.ngd{
+    margin-top: 10px;
 }

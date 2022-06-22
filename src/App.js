@@ -72,7 +72,7 @@ function App() {
 
   const handleAdd = () => {
     console.log(form)
-    fetch("http://localhost:34567/api/regester", {
+    fetch("http://16.168.43.141/api/regester", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
