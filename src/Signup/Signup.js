@@ -29,7 +29,7 @@ function Signin() {
   const handleAdd = (e) => {
     e.preventDefault()
     console.log(form)
-    fetch("http://192.168.43.141:34567/api/sing_up", {
+    fetch("http://localhost:34567/api/sing_up", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -42,7 +42,7 @@ function Signin() {
     ).then((raw) => raw.json())
       .then(() => {
         alert("Account created successfully")
-        navigate("/home")
+        navigate("/homepage")
 
       })
 

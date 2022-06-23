@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import App from './App';
-import Home from './Home/Home';
-import Quetion from './Home/Quetion';
+import Hqp from './Home/Hqp';
 import Registration from './Registration/Registration';
 import Signup from './Signup/Signup';
 import Signin from './Signup/Signin';
@@ -27,8 +26,7 @@ root.render(
       <Route path="/" element={<Signup />}/>
       <Route path="/Signin" element={<Signin />}/>
       <Route path="/forgotpassword" element={<Forgotpassword />}/>
-      <Route path="home" element={<Home />} />
-      <Route path="Quetion" element={<Quetion />} />
+      <Route path='homepage' element={<Hqp />} />
       <Route path="navbar" element={<NavBar />} />
       <Route path="/registration" element={<Registration />} exact/>
       <Route path="/profileOverView" element={<ProfileOverView />} />

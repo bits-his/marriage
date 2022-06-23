@@ -22,7 +22,7 @@ function Signin() {
   const handleAdd = (e) => {
     e.preventDefault()
     console.log(form)
-    fetch("http://192.168.43.141:34567/api/long_in", {
+    fetch("http://localhost:34567/api/long_in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -35,7 +35,7 @@ function Signin() {
       .then((raw) => raw.json())
       .then(data => {
         if (data && data.loggedIn) {
-          navigate("/home")
+          navigate("/homepage")
         } else {
           alert(data.message)
         }
