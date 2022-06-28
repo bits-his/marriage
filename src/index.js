@@ -16,6 +16,11 @@ import {
    Route,
    } from "react-router-dom";
 import Forgotpassword from './Signup/Forgotpassword';
+import EditProfile from './Home/EditProfile';
+import EditProfileSideBar from './Home/EditProfileSideBar';
+import SideBar from './Home/SideBar';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +35,9 @@ root.render(
       <Route path="navbar" element={<NavBar />} />
       <Route path="/registration" element={<Registration />} exact/>
       <Route path="/profileOverView" element={<ProfileOverView />} />
+      <Route path="/editprofile" element={<EditProfile />} />
+      <Route path="/editprofilesidebar" element={<EditProfileSideBar />} />
+      <Route path="/sidebar" element={<SideBar />} />
     </Routes>
     </BrowserRouter>  
   </React.StrictMode>
