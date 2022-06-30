@@ -1,9 +1,35 @@
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, CardBody, Col, Container, Input, Label, Row, Button, FormGroup } from 'reactstrap'
 import EditProfileSideBar from './EditProfileSideBar'
+import states from "../states";
+import localGoverment from "../localGoverment";
 
 export default function EditProfile() {
+
+    const _form = {
+        stateProvince: "",
+    }
+
+
+    const [form, setForm] = useState(_form)
+    const [data, useData] = useState([])
+    const [LGAs, setLGAs] = useState([])
+
+    const [open, setOpen] = useState(false);
+    const toggle = () => {
+        setOpen(!open);
+    };
+    const [open1, setOpen1] = useState(false);
+    const toggle1 = () => {
+        setOpen1(!open1);
+    };
+
+
+    const handleChange = ({ target: { name, value } }) =>
+        setForm((p) => ({ ...p, [name]: value }));
+
+
     return (
         <div>
             <Container>
@@ -23,6 +49,16 @@ export default function EditProfile() {
                                 </Col>
                                 <Col md={6}></Col>
                                 <Col md={6}>
+                                    <Label>Date Of Birth:</Label>
+                                    <Input type='date' />
+                                </Col>
+                                <Col md={2}>
+                                    <Button className='mt-4'>Change</Button>
+                                </Col>
+                                <Col md={4}>
+                                    * To protect your privacy we only store your month and year of birth
+                                </Col>
+                                <Col md={6}>
                                     <Label>I'm a:</Label>
                                     <Input type='text' />
                                 </Col>
@@ -30,17 +66,29 @@ export default function EditProfile() {
                                     <Button className='mt-4'>Change</Button>
                                 </Col>
                                 <Col md={3}></Col>
-                                <Col md={4}>
+                                {/* <Col md={4}>
                                     <Label>Country</Label>
                                     <Input type='select' />
+                                </Col> */}
+                                <Col md={6}>
+                                    <Label>State/Province</Label>
+                                    <Input type="select" name="stateProvince" value={form.stateProvince}
+                                        onChange={({ target: { value } }) => {
+                                            setForm(p => ({ ...p, stateProvince: value }))
+                                            let selected = localGoverment.find(a => a.state === value)
+                                            setLGAs(selected.lgas)
+                                        }}>
+                                        <option >Any State</option>
+                                        {localGoverment.map(item => <option>{item.state}</option>)}
+
+                                    </Input>
                                 </Col>
-                                <Col md={4}>
-                                    <Label>State/Province:</Label>
-                                    <Input type='select' />
-                                </Col>
-                                <Col md={4}>
+                                <Col md={6}>
                                     <Label>City</Label>
-                                    <Input type='select' />
+                                    <Input type="select" name="city" value={form.city} onChange={handleChange}>
+                                        <option>Any City</option>
+                                        {LGAs.map(item => <option>{item}</option>)}
+                                    </Input>
                                 </Col>
 
                                 <h3 className='mt-3'>Your Appearance</h3>
@@ -319,179 +367,136 @@ export default function EditProfile() {
                                 <hr />
 
                                 <Col md={4}>
-                                    <Input type='select'></Input>
+                                    <Input type='select'>
+                                        <option>Please Select...</option>
+                                        <option>No</option>
+                                        <option>Yes-don't live at home</option>
+                                        <option>Yes-sometimes live at home</option>
+                                        <option>Yes-live at home</option>
+                                    </Input>
                                 </Col>
-                                <Col md={7}></Col>
+
                                 <Col md={4}>
                                     <Label>Number of children:</Label>
-                                    <Input type='select'></Input>
+                                    <Input type='select'>
+                                        <option>Please Select...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>More than 8</option>
+                                    </Input>
                                 </Col>
-                                <Col md={7}></Col>
+
                                 <Col md={4}>
                                     <Label>Oldest child:</Label>
-                                    <Input type='select'></Input>
+                                    <Input type='select'>
+                                        <option>Please Select...</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>Older then 18</option>
+                                    </Input>
                                 </Col>
-                                <Col md={7}></Col>
+
                                 <Col md={4}>
                                     <Label>Youngest child:</Label>
-                                    <Input type='select'></Input>
+                                    <Input type='select'>
+                                        <option>Please Select...</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>Older then 18</option>
+                                    </Input>
                                 </Col>
-                                <Col md={7}></Col>
+
 
 
                                 <p className='mt-3'>Do you want (more) children?</p>
                                 <hr />
 
-                                <Col md={3}>
-                                    <Input type="radio" id="Yes" name="fav_language" value="Yes" />
-                                    <Label for="Yes">Yes</Label>
+                                <Col md={4}>
+                                    <Input type="select" >
+                                        <option>Please Select...</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                        <option>Not Sure</option>
+                                    </Input>
                                 </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Not Sure" name="fav_language" value="Not Sure" />
-                                    <Label for="Not Sure">Not Sure</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="No" name="fav_language" value="No" />
-                                    <Label for="No">No</Label>
-                                </Col>
-
                                 <p className='mt-3'>Occupation:</p>
                                 <hr />
+                                <Col md={4}>
+                                    <Input type='select' >
+                                        <option>Please Select...</option>
+                                        <option>Administrative / Secretarial / Clerical </option>
+                                        <option>Advertising / Media</option>
+                                        <option>Artistic / Creative / Performance</option>
+                                        <option>Construction / Trades</option>
+                                        <option>Domestic Helper</option>
+                                        <option>Education / Academic</option>
+                                        <option>Entertainment / Media</option>
+                                        <option>Executive / Management / HR</option>
+                                        <option>Farming / Agriculture</option>
+                                        <option>Finance / Banking / Real Estate</option>
+                                        <option>Fire / law enforcement / security</option>
+                                        <option>Hair Dresser / Personal Grooming</option>
+                                        <option>IT / Communications</option>
+                                        <option>Laborer / Manufacturing</option>
+                                        <option>Legal</option>
+                                        <option>Medical / Dental / Veterinary</option>
+                                        <option>Military</option>
+                                        <option>Nanny / Child care</option>
+                                        <option>No occupation / Stay at home</option>
+                                        <option>Non-profit / clergy / social services</option>
+                                        <option>Political / Govt / Civil Service</option>
+                                        <option>Retail / Food services</option>
+                                        <option>Retired</option>
+                                        <option>Sales / Marketing</option>
+                                        <option>Self Employed</option>
+                                        <option>Sports / recreation</option>
+                                        <option>Student</option>
+                                        <option>Technical / Science / Engineering</option>
+                                        <option>Transportation</option>
+                                        <option>Travel / Hospitality</option>
+                                        <option>Unemployed</option>
+                                        <option>Other</option>
 
 
-                                <Col md={3}>
-                                    <Input type="radio" id="Administrative / Secretarial / Clerical" name="fav_language" value="Administrative / Secretarial / Clerical" />
-                                    <Label for="Administrative / Secretarial / Clerical">Administrative / <br /> Secretarial / Clerical</Label>
+                                    </Input>
                                 </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Advertising / Media" name="fav_language" value="Advertising / Media" />
-                                    <Label for="Advertising / Media">Advertising / Media</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Artistic / Creative / Performance" name="fav_language" value="Artistic / Creative / Performance" />
-                                    <Label for="Artistic / Creative / Performance">Artistic / Creative / Performance</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Construction / Trades" name="fav_language" value="Construction / Trades" />
-                                    <Label for="Construction / Trades">Construction / Trades</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Domestic Helper" name="fav_language" value="Domestic Helper" />
-                                    <Label for="Domestic Helper">Domestic Helper</Label>
-                                </Col>
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Education / Academic" name="fav_language" value="Education / Academic" />
-                                    <Label for="Education / Academic">Education / Academic</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Entertainment / Media" name="fav_language" value="Entertainment / Media" />
-                                    <Label for="Entertainment / Media">Entertainment / Media</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Executive / Management / HR" name="fav_language" value="Executive / Management / HR" />
-                                    <Label for="Executive / Management / HR">Executive / Management / HR</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Farming / Agriculture" name="fav_language" value="Farming / Agriculture" />
-                                    <Label for="Farming / Agriculture">Farming / Agriculture</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Finance / Banking / Real Estate" name="fav_language" value="Finance / Banking / Real Estate" />
-                                    <Label for="Finance / Banking / Real Estate">Finance / Banking / Real Estate</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Fire / law enforcement / security" name="fav_language" value="Fire / law enforcement / security" />
-                                    <Label for="Fire / law enforcement / security">Fire / law enforcement / security</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Hair Dresser / Personal Grooming" name="fav_language" value="Hair Dresser / Personal Grooming" />
-                                    <Label for="Hair Dresser / Personal Grooming">Hair Dresser / Personal Grooming</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="IT / Communications" name="fav_language" value="IT / Communications" />
-                                    <Label for="IT / Communications">IT / Communications</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Laborer / Manufacturing" name="fav_language" value="Laborer / Manufacturing" />
-                                    <Label for="Laborer / Manufacturing">Laborer / Manufacturing</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Legal" name="fav_language" value="Legal" />
-                                    <Label for="Legal">Legal</Label>
-                                </Col>
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Medical / Dental / Veterinary" name="fav_language" value="Medical / Dental / Veterinary" />
-                                    <Label for="Medical / Dental / Veterinary">Medical / Dental / Veterinary</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Military" name="fav_language" value="Military" />
-                                    <Label for="Military">Military</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Nanny / Child care" name="fav_language" value="Nanny / Child care" />
-                                    <Label for="Nanny / Child care">Nanny / Child care</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="No occupation / Stay at home" name="fav_language" value="No occupation / Stay at home" />
-                                    <Label for="No occupation / Stay at home">No occupation / Stay at home</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Non-profit / clergy / social services" name="fav_language" value="Non-profit / clergy / social services" />
-                                    <Label for="Non-profit / clergy / social services">Non-profit / clergy / <br /> social services</Label>
-                                </Col>
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Political / Govt / Civil Service" name="fav_language" value="Political / Govt / Civil Service" />
-                                    <Label for="Political / Govt / Civil Service">Political / Govt / Civil Service</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Retail / Food services" name="fav_language" value="Retail / Food services" />
-                                    <Label for="Retail / Food services">Retail / Food services</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Retired" name="fav_language" value="Retired" />
-                                    <Label for="Retired">Retired</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Sales / Marketing" name="fav_language" value="Sales / Marketing" />
-                                    <Label for="Sales / Marketing">Sales / Marketing</Label>
-                                </Col>
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Self Employed" name="fav_language" value="Self Employed" />
-                                    <Label for="Self Employed">Self Employed</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Sports / recreation" name="fav_language" value="Sports / recreation" />
-                                    <Label for="Sports / recreation">Sports / recreation</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Student" name="fav_language" value="Student" />
-                                    <Label for="Student">Student</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Technical / Science / Engineering" name="fav_language" value="Technical / Science / Engineering" />
-                                    <Label for="Technical / Science / Engineering">Technical / Science / Engineering</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Transportation" name="fav_language" value="Transportation" />
-                                    <Label for="Transportation">Transportation</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Travel / Hospitality" name="fav_language" value="Travel / Hospitality" />
-                                    <Label for="Travel / Hospitality">Travel / Hospitality</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Unemployed" name="fav_language" value="Unemployed" />
-                                    <Label for="Unemployed">Unemployed</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Other" name="fav_language" value="Other" />
-                                    <Label for="Other">Other</Label>
-                                </Col>
-
                                 <p className='mt-3'>Employment status:</p>
                                 <hr />
 
@@ -651,7 +656,14 @@ export default function EditProfile() {
                                 <hr />
 
                                 <Col md={4}>
-                                    <Input type='select' ></Input>
+                                    <Input type='select' >
+                                        <option>Please Select..</option>
+                                        <option>English</option>
+                                        <option>Hausa</option>
+                                        <option>Arabic</option>
+                                        <option>Other</option>
+
+                                    </Input>
                                 </Col>
                                 <Col md={7}>* use Ctrl key for multiple selections</Col>
 
@@ -724,32 +736,17 @@ export default function EditProfile() {
                                 <hr />
 
                                 <Col md={3}>
-                                    <Input type="radio" id="Daily" name="fav_language" value="Daily" />
-                                    <Label for="Daily">Daily</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Ocassionally" name="fav_language" value="Ocassionally" />
-                                    <Label for="Ocassionally">Ocassionally</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Only During Ramadan" name="fav_language" value="Only During Ramadan" />
-                                    <Label for="Only During Ramadan">Only During Ramadan</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Only on Jummah / Fridays" name="fav_language" value="Only on Jummah / Fridays" />
-                                    <Label for="Only on Jummah / Fridays">Only on Jummah / Fridays</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Read translated version" name="fav_language" value="Read translated version" />
-                                    <Label for="Read translated version">Read translated version</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Never Read" name="fav_language" value="Never Read" />
-                                    <Label for="Never Read">Never Read</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Prefer not to say" name="fav_language" value="Prefer not to say" />
-                                    <Label for="Prefer not to say">Prefer not to say</Label>
+                                    <Input type="select" >
+                                        <option>Please Select...</option>
+                                        <option>Daily</option>
+                                        <option>Ocassionally</option>
+                                        <option>Only During Ramadan</option>
+                                        <option>Only on Jummah / Fridays</option>
+                                        <option>Read translated version</option>
+                                        <option>Never Read</option>
+                                        <option>Prefer not to say</option>
+
+                                    </Input>
                                 </Col>
 
                                 <p className='mt-3'>Polygamy:</p>
@@ -826,7 +823,7 @@ export default function EditProfile() {
                                     <Label>What you're looking for in a partner:</Label>
                                     <Input type='text' />
                                 </Col>
-                                <center><Button className='mt-3' style={{width: "10rem"}}>Submit</Button></center>
+                                <center><Button className='mt-3' style={{ width: "10rem" }}>Submit</Button></center>
                             </Row>
                         </CardBody>
                     </Row>

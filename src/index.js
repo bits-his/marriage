@@ -8,8 +8,8 @@ import Signin from './Signup/Signin';
 import NavBar from './Home/NavBar';
 import ProfileOverView from './Home/profileOverView';
 import reportWebVitals from './reportWebVitals';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-circular-progressbar/dist/styles.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'react-circular-progressbar/dist/styles.css';
 import { 
   BrowserRouter,
    Routes,

@@ -15,6 +15,7 @@ function Quetion() {
     stateProvince: "",
     city: "",
     within: "",
+    im: ""
   }
 
   const [form, setForm] = useState(_form)
@@ -37,6 +38,14 @@ function Quetion() {
     <div>
       <Card className="shadow shado">
         <Row>
+        <Col md={2}>
+            <Label>I'm</Label>
+            <Input type="select" name="seeking" value={form.seeking} onChange={handleChange}>
+              <option>Any</option>
+              <option>Female</option>
+              <option>Male</option>
+            </Input>
+          </Col>
           <Col md={2}>
             <Label>Seeking</Label>
             <Input type="select" name="seeking" value={form.seeking} onChange={handleChange}>
@@ -45,7 +54,7 @@ function Quetion() {
               <option>Male</option>
             </Input>
           </Col>
-          <Col md={2}>
+          <Col md={1}>
             <Label>Age</Label>
             <Input type="select" name="age" value={form.age} onChange={handleChange}>
               <option>18</option>
@@ -83,7 +92,7 @@ function Quetion() {
               {LGAs.map(item => <option>{item}</option>)}
             </Input>
           </Col>
-          <Col md={2}>
+          <Col md={1}>
             <Label>Within</Label>
             <Input type="text" placeholder="Kms" name="within" value={form.within} onChange={handleChange} />
           </Col>
