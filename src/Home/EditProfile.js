@@ -8,13 +8,58 @@ import localGoverment from "../localGoverment";
 export default function EditProfile() {
 
     const _form = {
-        stateProvince: "",
+        your_basics: "",
+        hair_color: "",
+        eye_color: "",
+        height: "",
+        weight: "",
+        body_type: "",
+        Your_ethnicity_is_mostly: "",
+        I_consider_my_appearance_as: "",
+        do_you_drink: "",
+        do_you_smoke: "",
+        eating_habbit: "",
+        marital_status: "",
+        Do_you_have_children: "",
+        number_of_children: "",
+        oldest_child:  "",
+        Do_you_want_more_children: "",
+        occupation: "",
+        employement_status: "",
+        annual_income: "",
+        living_situation: "",
+        willing_to_relocate: "",
+        relationship_you_are_looking_for: "",
+        your_background: "",
+        education: "",
+        language_spoken: "",
+        religion: "",
+        born_reverted: "",
+        religious_value: "",
+        attend_religious_service: "",
+        read_Qur_an: "",
+        polygamy: "",
+        family_value: "",
+        profile_creator: "",
+        your_profile_heading: "",
+        a_little_about_yourself: "",
+        what_you_are_looking_for_in_a_partner: ""
     }
 
-
     const [form, setForm] = useState(_form)
-    // const [data, useData] = useState([])
+    const [data, setData] = useState([])
     const [LGAs, setLGAs] = useState([])
+
+
+    const handleAdd = () => {
+    
+        setData(p => ([
+            ...p,
+            console.log(form)
+
+        ]))
+        setForm(_form)
+    }
 
     // const [open, setOpen] = useState(false);
     // // const toggle = () => {
@@ -45,12 +90,16 @@ export default function EditProfile() {
                                 <hr />
                                 <Col md={6}>
                                     <Label>First Name</Label>
-                                    <Input type='text' />
+                                    <Input type='text' 
+                                    name='firstName' value={form.firstName}
+                                    />
                                 </Col>
                                 <Col md={6}></Col>
                                 <Col md={6}>
                                     <Label>Date Of Birth:</Label>
-                                    <Input type='date' />
+                                    <Input type='date' 
+                                    name='dateOfBirth' value={form.dateOfBirth}
+                                    />
                                 </Col>
                                 <Col md={2}>
                                     <Button className='mt-4'>Change</Button>
@@ -93,281 +142,205 @@ export default function EditProfile() {
 
                                 <h3 className='mt-3'>Your Appearance</h3>
                                 <hr />
-                                <p>Hair color:</p>
-                                <hr />
-                                <Col md={3}>
-                                    <Input type="radio" id="Bald / Shaved" name="fav_language" value="Bald / Shaved" />
-                                    <Label for="Bald / Shaved">Bald / Shaved</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Black" name="fav_language" value="Black" />
-                                    <Label for="Black">Black</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Blonde" name="fav_language" value="Blonde" />
-                                    <Label for="Blonde">Blonde</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Brown" name="fav_language" value="Brown" />
-                                    <Label for="Brown">Brown</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Grey / White" name="fav_language" value="Grey / White" />
-                                    <Label for="Grey / White">Grey / White</Label>
-                                </Col>
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Light Brown" name="fav_language" value="Light Brown" />
-                                    <Label for="Light Brown">Light Brown</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Red" name="fav_language" value="Red" />
-                                    <Label for="Red">Red</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Changes frequently" name="fav_language" value="Changes frequently" />
-                                    <Label for="Changes frequently">Changes frequently</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Other" name="fav_language" value="Other" />
-                                    <Label for="Other">Other</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Prefer not to say" name="fav_language" value="Prefer not to say" />
-                                    <Label for="Prefer not to say">Prefer not to say</Label>
-                                </Col>
-
-                                <p className='mt-3'>Eye color:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Green" name="fav_language" value="Green" />
-                                    <Label for="Green">Green</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Black" name="fav_language" value="Black" />
-                                    <Label for="Black">Black</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Blonde" name="fav_language" value="Blonde" />
-                                    <Label for="Blonde">Blonde</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Brown" name="fav_language" value="Brown" />
-                                    <Label for="Brown">Brown</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Grey / White" name="fav_language" value="Grey / White" />
-                                    <Label for="Grey / White">Grey / White</Label>
-                                </Col>
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Light Brown" name="fav_language" value="Light Brown" />
-                                    <Label for="Light Brown">Light Brown</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Red" name="fav_language" value="Red" />
-                                    <Label for="Red">Red</Label>
-                                </Col>
-
-                                <p className='mt-3'>Height:</p>
-                                <hr />
                                 <Col md={4}>
-                                    <Input type='select' />
+                                    <Label>Hair color:</Label>
+                                    <Input type="select" 
+                                    name='hair_color' value={form.hair_color}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Bald / Shaved</option>
+                                        <option>Black</option>
+                                        <option>Blonde</option>
+                                        <option>Brown</option>
+                                        <option>Grey / White</option>
+                                        <option>Light Brown</option>
+                                        <option>Red</option>
+                                        <option>Changes frequently</option>
+                                        <option>Other</option>
+                                        <option>Prefer not to say</option>
+                                    </Input>
                                 </Col>
-                                <Col md={7}></Col>
 
-                                <p className='mt-3'>Weight:</p>
-                                <hr />
                                 <Col md={4}>
-                                    <Input type='select' />
-                                </Col>
-                                <Col md={7}></Col>
+                                    <Label>Eye color:</Label>
+                                    <Input type="select" 
+                                    name='eye_color' value={form.eye_color}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Black</option>
+                                        <option>Blue</option>
+                                        <option>Brown</option>
+                                        <option>Green</option>
+                                        <option>Grey</option>
+                                        <option>Hazel</option>
+                                        <option>Other</option>
+                                        <option></option>
 
-                                <p className='mt-3'>Body type:</p>
-                                <hr />
-                                <Col md={3}>
-                                    <Input type="radio" id="Petite" name="fav_language" value="Petite" />
-                                    <Label for="Petite">Petite</Label>
+                                    </Input>
                                 </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Slim" name="fav_language" value="Slim" />
-                                    <Label for="Slim">Slim</Label>
+                                <Col md={4}>
+                                    <Label>Height:</Label>
+                                    <Input type='select'
+                                    name='height' value={form.height}
+                                    onChange={handleChange}
+                                    >
+                                    <option>Please Select...</option>
+                                    <option>4'7"(140 cm)</option>
+                                    <option>4'8"(143 cm)</option>
+                                    <option>4'9"(145 cm)</option>
+                                    <option>5'(148 cm)</option>
+                                    <option>5'1"(153 cm)</option>
+                                    <option>5'2"(155 cm)</option>
+                                    <option>5'3"(158 cm)</option>
+                                    <option>5'4"(161 cm)</option>
+                                    <option>5'5"(163 cm)</option>
+                                    <option>5'6"(166 cm)</option>
+                                    <option>5'7"(168 cm)</option>
+                                    <option>5'8"(171 cm)</option>
+                                    <option>5'9"(173 cm)</option>
+                                    </Input>
                                 </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Athletic" name="fav_language" value="Athletic" />
-                                    <Label for="Athletic">Athletic</Label>
+                                <Col md={4}>
+                                    <Label>Weight:</Label>
+                                    <Input type='select' 
+                                    name='weight' value={form.weight}
+                                    onChange={handleChange}
+                                    >
+                                    <option>Please Select...</option>
+                                    <option>40 kg(140 Ib)</option>
+                                    <option>41 kg(143 Ib)</option>
+                                    <option>42 kg(145 Ib)</option>
+                                    <option>43 kg(148 Ib)</option>
+                                    <option>45 kg(153 Ib)</option>
+                                    <option>46 kg(155 Ib)</option>
+                                    <option>47 kg(158 Ib)</option>
+                                    <option>48 kg(161 Ib)</option>
+                                    <option>49 kg(163 Ib)</option>
+                                    <option>50 kg(166 Ib)</option>
+                                    <option>51 kg(168 Ib)</option>
+                                    <option>52 kg(171 Ib)</option>
+                                    <option>53 kg(173 Ib)</option>
+                                    </Input>
                                 </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Average" name="fav_language" value="Average" />
-                                    <Label for="Average">Average</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Few Extra Pounds" name="fav_language" value="Few Extra Pounds" />
-                                    <Label for="Few Extra Pounds">Few Extra Pounds</Label>
-                                </Col>
+                                <Col md={4}>
+                                    <Label>Body type:</Label>
+                                    <Input type="select" 
+                                    name='body_type' value={form.body_type}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Petite</option>
+                                        <option>Slim</option>
+                                        <option>Athletic</option>
+                                        <option>Average</option>
+                                        <option>Few Extra Pounds</option>
+                                        <option>Full Figured</option>
+                                        <option>Large and Lovely</option>
 
-                                <Col md={3}>
-                                    <Input type="radio" id="Full Figured" name="fav_language" value="Full Figured" />
-                                    <Label for="Full Figured">Full Figured</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Large and Lovely" name="fav_language" value="Large and Lovely" />
-                                    <Label for="Large and Lovely">Large and Lovely</Label>
-                                </Col>
-
-                                <p className='mt-3'>Your ethnicity is mostly:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Arab (Middle Eastern)" name="fav_language" value="Arab (Middle Eastern)" />
-                                    <Label for="Arab (Middle Eastern)">Arab (Middle Eastern)</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Asian" name="fav_language" value="Asian" />
-                                    <Label for="Asian">Asian</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Black" name="fav_language" value="Black" />
-                                    <Label for="Black">Black</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Caucasian (White)" name="fav_language" value="Caucasian (White)" />
-                                    <Label for="Caucasian (White)">Caucasian (White)</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Hispanic / Latino" name="fav_language" value="Hispanic / Latino" />
-                                    <Label for="Hispanic / Latino">Hispanic / Latino</Label>
-                                </Col>
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Indian" name="fav_language" value="Indian" />
-                                    <Label for="Indian">Indian</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Mixed" name="fav_language" value="Mixed" />
-                                    <Label for="Mixed">Mixed</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Pacific Islander" name="fav_language" value="Pacific Islander" />
-                                    <Label for="Pacific Islander">Pacific Islander</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Other" name="fav_language" value="Other" />
-                                    <Label for="Other">Other</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Prefer not to say" name="fav_language" value="Prefer not to say" />
-                                    <Label for="Prefer not to say">Prefer not to say</Label>
+                                    </Input>
                                 </Col>
 
-                                <p className='mt-3'>I consider my appearance as:</p>
-                                <hr />
 
-                                <Col md={3}>
-                                    <Input type="radio" id="Below average" name="fav_language" value="Below average" />
-                                    <Label for="Below average">Below average</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Average" name="fav_language" value="Average" />
-                                    <Label for="Average">Average</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Attractive" name="fav_language" value="Attractive" />
-                                    <Label for="Attractive">Attractive</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Very attractive" name="fav_language" value="Very attractive" />
-                                    <Label for="Very attractive">Very attractive</Label>
-                                </Col>
 
+                                <Col md={4}>
+                                    <Label>Your ethnicity is mostly:</Label>
+                                    <Input type="select" 
+                                    name='Your_ethnicity_is_mostly' value={form.Your_ethnicity_is_mostly}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Arab (Middle Eastern)</option>
+                                        <option>Asian</option>
+                                        <option>Black</option>
+                                        <option>Caucasian (White)</option>
+                                        <option>Hispanic / Latino</option>
+                                        <option>Indian</option>
+                                        <option>Mixed</option>
+                                        <option>Pacific Islander</option>
+                                        <option>Other</option>
+                                        <option>Other</option>
+
+                                    </Input>
+                                </Col>
+                                <Col md={4}>
+                                    <Label>I consider my appearance as:</Label>
+                                    <Input type="select" 
+                                    name='I_consider_my_appearance_as' value={form.I_consider_my_appearance_as}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Below average</option>
+                                        <option>Average</option>
+                                        <option>Attractive</option>
+                                        <option>Very attractive</option>
+
+                                    </Input>
+                                </Col>
                                 <h3 className='mt-3'>Your Lifestyle</h3>
-                                <hr />
-                                <p className='mt-3'>Do you drink?</p>
-                                <hr />
 
-                                <Col md={3}>
-                                    <Input type="radio" id="Do drink" name="fav_language" value="Do drink" />
-                                    <Label for="Do drink">Do drink</Label>
+                                <Label>Do you drink?</Label>
+                                <Col md={4}>
+                                    <Input type="select"  
+                                    name='do_you_drink' value={form.do_you_drink}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Do drink</option>
+                                        <option>Occasionally drink</option>
+                                        <option>Don't drink</option>
+                                        <option>Prefer not to say</option>
+                                    </Input>
                                 </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Occasionally drink" name="fav_language" value="Occasionally drink" />
-                                    <Label for="Occasionally drink">Occasionally drink</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Don't drink" name="fav_language" value="Don't drink" />
-                                    <Label for="Don't drink">Don't drink</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Prefer not to say" name="fav_language" value="Prefer not to say" />
-                                    <Label for="Prefer not to say">Prefer not to say</Label>
-                                </Col>
-
-                                <p className='mt-3'>Do you drink?</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Do smoke" name="fav_language" value="Do smoke" />
-                                    <Label for="Do smoke">Do smoke</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Occasionally smoke" name="fav_language" value="Occasionally smoke" />
-                                    <Label for="Occasionally smoke">Occasionally smoke</Label>
-                                </Col>
-                                <Col md={2}>
-                                    <Input type="radio" id="Don't smoke" name="fav_language" value="Don't smoke" />
-                                    <Label for="Don't smoke">Don't smoke</Label>
-                                </Col>
-
-                                <p className='mt-3'>Eating Habits:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Halal foods always" name="fav_language" value="Halal foods always" />
-                                    <Label for="Halal foods always">Halal foods always</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Halal foods when I can" name="fav_language" value="Halal foods when I can" />
-                                    <Label for="Halal foods when I can">Halal foods when I can</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="No special restrictions" name="fav_language" value="No special restrictions" />
-                                    <Label for="No special restrictions">No special restrictions</Label>
-                                </Col>
-
-                                <p className='mt-3'>Marital Status:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Single" name="fav_language" value="Single" />
-                                    <Label for="Single">Single</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Separated" name="fav_language" value="Separated" />
-                                    <Label for="Separated">Separated</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Widowed" name="fav_language" value="Widowed" />
-                                    <Label for="Widowed">Widowed</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Divorced" name="fav_language" value="Divorced" />
-                                    <Label for="Divorced">Divorced</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Other" name="fav_language" value="Other" />
-                                    <Label for="Other">Other</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Prefer not to say" name="fav_language" value="Prefer not to say" />
-                                    <Label for="Prefer not to say">Prefer not to say</Label>
-                                </Col>
-
-                                <p className='mt-3'>Do you have children?</p>
-                                <hr />
 
                                 <Col md={4}>
-                                    <Input type='select'>
+                                    <Label>Do you drink?</Label>
+                                    <Input type="select"
+                                    name='do_you_smoke' value={form.do_you_smoke}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Do smoke</option>
+                                        <option>Occasionally smoke</option>
+                                        <option>Don't smoke</option>
+                                    </Input>
+                                </Col>
+                                <Col md={4}>
+                                    <Label>Eating Habits:</Label>
+                                    <Input type="select" 
+                                    name='eating_habbit' value={form.eating_habbit}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Halal foods always</option>
+                                        <option>Halal foods when I can</option>
+                                        <option>No special restrictions</option>
+                                    </Input>
+                                </Col>
+
+                                <Col md={4}>
+                                    <Label>Marital Status:</Label>
+                                    <Input type="select" 
+                                    name='marital_status' value={form.marital_status}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Single</option>
+                                        <option>Separated</option>
+                                        <option>Widowed</option>
+                                        <option>Divorced</option>
+                                        <option>Other</option>
+                                        <option>Prefer not to say</option>
+                                    </Input>
+                                </Col>
+
+                                <Col md={4}>
+                                    <Label>Do you have children?</Label>
+                                    <Input type='select'
+                                    name='Do_you_have_children' value={form.Do_you_have_children}
+                                    onChange={handleChange}
+                                    >
                                         <option>Please Select...</option>
                                         <option>No</option>
                                         <option>Yes-don't live at home</option>
@@ -378,7 +351,10 @@ export default function EditProfile() {
 
                                 <Col md={4}>
                                     <Label>Number of children:</Label>
-                                    <Input type='select'>
+                                    <Input type='select'
+                                    name='number_of_children' value={form.number_of_children}
+                                    onChange={handleChange}
+                                    >
                                         <option>Please Select...</option>
                                         <option>1</option>
                                         <option>2</option>
@@ -394,7 +370,10 @@ export default function EditProfile() {
 
                                 <Col md={4}>
                                     <Label>Oldest child:</Label>
-                                    <Input type='select'>
+                                    <Input type='select'
+                                    name='oldest_child' value={form.oldest_child}
+                                    onChange={handleChange}
+                                    >
                                         <option>Please Select...</option>
                                         <option>2</option>
                                         <option>3</option>
@@ -443,23 +422,24 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
 
-
-
-                                <p className='mt-3'>Do you want (more) children?</p>
-                                <hr />
-
                                 <Col md={4}>
-                                    <Input type="select" >
+                                    <Label>Do you want (more) children?</Label>
+                                    <Input type="select" 
+                                    name='Do_you_want_more_children' value={form.Do_you_want_more_children}
+                                    onChange={handleChange}
+                                    >
                                         <option>Please Select...</option>
                                         <option>Yes</option>
                                         <option>No</option>
                                         <option>Not Sure</option>
                                     </Input>
                                 </Col>
-                                <p className='mt-3'>Occupation:</p>
-                                <hr />
                                 <Col md={4}>
-                                    <Input type='select' >
+                                    <Label>Occupation:</Label>
+                                    <Input type='select' 
+                                    name='occupation' value={form.occupation}
+                                    onChange={handleChange}
+                                    >
                                         <option>Please Select...</option>
                                         <option>Administrative / Secretarial / Clerical </option>
                                         <option>Advertising / Media</option>
@@ -497,166 +477,121 @@ export default function EditProfile() {
 
                                     </Input>
                                 </Col>
-                                <p className='mt-3'>Employment status:</p>
-                                <hr />
 
-                                <Col md={3}>
-                                    <Input type="radio" id="Student" name="fav_language" value="Student" />
-                                    <Label for="Student">Student</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Part Time" name="fav_language" value="Part Time" />
-                                    <Label for="Part Time">Part Time</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Full Time" name="fav_language" value="Full Time" />
-                                    <Label for="Full Time">Full Time</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Homemaker" name="fav_language" value="Homemaker" />
-                                    <Label for="Homemaker">Homemaker</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Retired" name="fav_language" value="Retired" />
-                                    <Label for="Retired">Retired</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Not Employed" name="fav_language" value="Not Employed" />
-                                    <Label for="Not Employed">Not Employed</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Other" name="fav_language" value="Other" />
-                                    <Label for="Other">Other</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Prefer not to say" name="fav_language" value="Prefer not to say" />
-                                    <Label for="Prefer not to say">Prefer not to say</Label>
-                                </Col>
-
-                                <p className='mt-3'>Annual Income:</p>
-                                <hr />
 
                                 <Col md={4}>
-                                    <Input type='select' placeholder='Please Select...'></Input>
+                                    <Label>Employment status:</Label>
+                                    <Input type="select" 
+                                    name='employement_status' value={form.employement_status}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Student</option>
+                                        <option>Part Time</option>
+                                        <option>Full Time</option>
+                                        <option>Homemaker</option>
+                                        <option>Retired</option>
+                                        <option>Not Employed</option>
+                                        <option>Other</option>
+                                        <option>Prefer not to say</option>
+                                    </Input>
                                 </Col>
-                                <Col md={7}></Col>
+
+                                <Col md={4}>
+                                    <Label>Annual Income:</Label>
+                                    <Input type='select' 
+                                    name='annual_income' value={form.annual_income}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                    </Input>
+                                </Col>
                                 <Col md={4}>
                                     <Label>change currency</Label>
-                                    <Input type='select'></Input>
-                                </Col>
-                                <Col md={7}></Col>
-
-                                <p className='mt-3'>Living situation:</p>
-                                <hr />
-
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Live Alone" name="fav_language" value="Live Alone" />
-                                    <Label for="Live Alone">Live Alone</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Live with friends" name="fav_language" value="Live with friends" />
-                                    <Label for="Live with friends">Live with friends</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Live with family" name="fav_language" value="Live with family" />
-                                    <Label for="Live with family">Live with family</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Live with kids" name="fav_language" value="Live with kids" />
-                                    <Label for="Live with kids">Live with kids</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Live with spouse" name="fav_language" value="Live with spouse" />
-                                    <Label for="Live with spouse">Live with spouse</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Other" name="fav_language" value="Other" />
-                                    <Label for="Other">Other</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Prefer not to say" name="fav_language" value="Prefer not to say" />
-                                    <Label for="Prefer not to say">Prefer not to say</Label>
+                                    <Input type='select'>
+                                        <option>Please Select...</option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                        <option></option>
+                                    </Input>
                                 </Col>
 
-                                <p className='mt-3'>Willing to relocate:</p>
-                                <hr />
 
                                 <Col md={4}>
-                                    <Input type="radio" id="Willing to relocate within my country" name="fav_language" value="Willing to relocate within my country" />
-                                    <Label for="Willing to relocate within my country">Willing to relocate within my country</Label>
+                                    <Label>Living situation:</Label>
+                                    <Input type="select" 
+                                    name='living_situation' value={form.living_situation}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Live Alone</option>
+                                        <option>Live with friends</option>
+                                        <option>Live with family</option>
+                                        <option>Live with kids</option>
+                                        <option>Live with spouse</option>
+                                        <option>Other</option>
+                                        <option>Prefer not to say</option>
+                                    </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Input type="radio" id="Willing to relocate to another country" name="fav_language" value="Willing to relocate to another country" />
-                                    <Label for="Willing to relocate to another country">Willing to relocate to another country</Label>
+                                    <Label>Willing to relocate:</Label>
+                                    <Input type="select"
+                                    name='willing_to_relocate' value={form.willing_to_relocate}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Willing to relocate within my country</option>
+                                        <option>Willing to relocate to another country</option>
+                                        <option>Not willing to relocate</option>
+                                        <option>Not sure about relocating</option>
+                                    </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Input type="radio" id="Not willing to relocate" name="fav_language" value="Not willing to relocate" />
-                                    <Label for="Not willing to relocate">Not willing to relocate</Label>
+                                    <Label>Relationship you're looking for:</Label>
+                                    <Input type="select" 
+                                    name='relationship_you_are_looking_for' value={form.relationship_you_are_looking_for}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Marriage</option>
+                                        <option>Friendship</option>
+                                    </Input>
                                 </Col>
 
-                                <p className='mt-3'>Relationship you're looking for:</p>
-                                <hr />
-                                <Col md={3}>
-                                    <Input type="checkbox" id="Marriage" name="fav_language" value="Marriage" />
-                                    <Label for="Marriage">Marriage</Label>
-                                </Col>
 
-                                <Col md={3}>
-                                    <Input type="checkbox" id="Friendship" name="fav_language" value="Friendship" />
-                                    <Label for="Friendship">Friendship</Label>
-                                </Col>
-                                <Col md={6}></Col>
 
                                 <h3 className='mt-3'>Your Background / Cultural Values</h3>
-                                <hr />
-
-                                <p className='mt-3'>Your Background / Cultural Values</p>
-                                <hr />
-                                <Col md={4}>
-                                    <Input type='select' ></Input>
-                                </Col>
-                                <Col md={7}></Col>
-
-                                <p className='mt-3'>Education:</p>
-                                <hr />
-
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Primary (Elementary) School" name="fav_language" value="Primary (Elementary) School" />
-                                    <Label for="Primary (Elementary) School">Primary (Elementary) School</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Middle School / Junior High" name="fav_language" value="Middle School / Junior High" />
-                                    <Label for="Middle School / Junior High">Middle School / Junior High</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="High School" name="fav_language" value="High School" />
-                                    <Label for="High School">High School</Label>
-                                </Col>
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Vocational College" name="fav_language" value="Vocational College" />
-                                    <Label for="Vocational College">Vocational College</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Bachelors Degree" name="fav_language" value="Bachelors Degree" />
-                                    <Label for="Bachelors Degree">Bachelors Degree</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Masters Degree" name="fav_language" value="Masters Degree" />
-                                    <Label for="Masters Degree">Masters Degree</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="PhD or Doctorate" name="fav_language" value="PhD or Doctorate" />
-                                    <Label for="PhD or Doctorate">PhD or Doctorate</Label>
-                                </Col>
-
-                                <p className='mt-3'>Languages spoken:</p>
-                                <hr />
 
                                 <Col md={4}>
-                                    <Input type='select' >
+                                    <Label>Education:</Label>
+                                    <Input type='select' 
+                                    name='education' value={form.education}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Primary (Elementary) School</option>
+                                        <option>Middle School / Junior High</option>
+                                        <option>High School</option>
+                                        <option>Vocational College</option>
+                                        <option>Bachelors Degree</option>
+                                        <option>Masters Degree</option>
+                                        <option>PhD or Doctorate</option>
+                                    </Input>
+                                </Col>
+                                <Col md={4}>
+                                    <Label>Languages spoken:</Label>
+                                    <Input type='select' 
+                                    name='language_spoken' value={form.language_spoken}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
                                         <option>Please Select..</option>
                                         <option>English</option>
                                         <option>Hausa</option>
@@ -665,78 +600,73 @@ export default function EditProfile() {
 
                                     </Input>
                                 </Col>
-                                <Col md={7}>* use Ctrl key for multiple selections</Col>
 
-                                <p className='mt-3'>Religion:</p>
-                                <hr />
+                                <Col md={4}>
+                                    <Label>Religion:</Label>
+                                    <Input type='select'
+                                    name='religion' value={form.religion}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Islam Sunna</option>
+                                        <option>Islam Shiite</option>
+                                        <option>Islam Sufism</option>
+                                        <option>Islam Ahmadiyya</option>
+                                        <option>Islam Other</option>
+                                        <option>Willing to revert</option>
+                                        <option>Other</option>
+                                        <option>Frefer not to say</option>
+                                    </Input>
+                                </Col>
+
+                                <Col md={4}>
+                                    <Label>Born / Reverted:</Label>
+                                    <Input type="select" 
+                                    name='born_reverted' value={form.born_reverted}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Born a muslim</option>
+                                        <option>Reverted to Islam</option>
+                                        <option>Plan to revert to Islam</option>
+                                    </Input>
+                                </Col>
 
 
                                 <Col md={4}>
-                                    <Input type='select' ></Input>
-                                </Col>
-                                <Col md={7}></Col>
+                                    <Label>Religious values:</Label>
+                                    <Input type="select"
+                                    name='religious_value' value={form.religious_value}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Very Religious</option>
+                                        <option>Religious</option>
+                                        <option>Not Religious</option>
+                                    </Input>
 
-                                <p className='mt-3'>Born / Reverted:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Born a muslim" name="fav_language" value="Born a muslim" />
-                                    <Label for="Born a muslim">Born a muslim</Label>
                                 </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Reverted to Islam" name="fav_language" value="Reverted to Islam" />
-                                    <Label for="Reverted to Islam">Reverted to Islam</Label>
+                                <Col md={4}>
+                                    <Label>Attend religious services:</Label>
+                                    <Input type="select" 
+                                    name='attend_religious_service' value={form.attend_religious_service}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Daily</option>
+                                        <option>Only on Jummah / Fridays</option>
+                                        <option>Sometimes</option>
+                                        <option>Only During Ramadan</option>
+                                        <option>Never</option>
+                                    </Input>
                                 </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Plan to revert to Islam" name="fav_language" value="Plan to revert to Islam" />
-                                    <Label for="Plan to revert to Islam">Plan to revert to Islam</Label>
-                                </Col>
-
-                                <p className='mt-3'>Religious values:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Very Religious" name="fav_language" value="Very Religious" />
-                                    <Label for="Very Religious">Very Religious</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Religious" name="fav_language" value="Religious" />
-                                    <Label for="Religious">Religious</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Not Religious" name="fav_language" value="Not Religious" />
-                                    <Label for="Not Religious">Not Religious</Label>
-                                </Col>
-
-                                <p className='mt-3'>Attend religious services:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Daily" name="fav_language" value="Daily" />
-                                    <Label for="Daily">Daily</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Only on Jummah / Fridays" name="fav_language" value="Only on Jummah / Fridays" />
-                                    <Label for="Only on Jummah / Fridays">Only on Jummah / Fridays</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Sometimes" name="fav_language" value="Sometimes" />
-                                    <Label for="Sometimes">Sometimes</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Only During Ramadan" name="fav_language" value="Only During Ramadan" />
-                                    <Label for="Only During Ramadan">Only During Ramadan</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Never" name="fav_language" value="Never" />
-                                    <Label for="Never">Never</Label>
-                                </Col>
-
-                                <p className='mt-3'>Read Qur'an:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="select" >
+                                <Col md={4}>
+                                    <Label>Read Qur'an:</Label>
+                                    <Input type="select" 
+                                    name='read_Qur_an' value={form.read_Qur_an}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
                                         <option>Please Select...</option>
                                         <option>Daily</option>
                                         <option>Ocassionally</option>
@@ -748,82 +678,71 @@ export default function EditProfile() {
 
                                     </Input>
                                 </Col>
-
-                                <p className='mt-3'>Polygamy:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Accept polygamy" name="fav_language" value="Accept polygamy" />
-                                    <Label for="Accept polygamy">Accept polygamy</Label>
+                                <Col md={4}>
+                                    <Label>Polygamy:</Label>
+                                    <Input type="select" 
+                                    name='polygamy' value={form.polygamy}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Accept polygamy</option>
+                                        <option>Maybe accept polygamy</option>
+                                        <option>Don't accept polygam</option>
+                                    </Input>
                                 </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Maybe accept polygamy" name="fav_language" value="Maybe accept polygamy" />
-                                    <Label for="Maybe accept polygamy">Maybe accept polygamy</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Don't accept polygamy" name="fav_language" value="Don't accept polygamy" />
-                                    <Label for="Don't accept polygamy">Don't accept polygamy</Label>
-                                </Col>
-
-                                <p className='mt-3'>Family values:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Conservative" name="fav_language" value="Conservative" />
-                                    <Label for="Conservative">Conservative</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Moderate" name="fav_language" value="Moderate" />
-                                    <Label for="Moderate">Moderate</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Liberal" name="fav_language" value="Liberal" />
-                                    <Label for="Liberal">Liberal</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Prefer not to say" name="fav_language" value="Prefer not to say" />
-                                    <Label for="Prefer not to say">Prefer not to say</Label>
+                                <Col md={4}>
+                                    <Label>Family values:</Label>
+                                    <Input type="select" 
+                                    name='family_value' value={form.family_value}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Conservative</option>
+                                        <option>Moderate</option>
+                                        <option>Liberal</option>
+                                        <option>Prefer not to say</option>
+                                    </Input>
                                 </Col>
 
-                                <p className='mt-3'>Profile creator:</p>
-                                <hr />
-
-                                <Col md={3}>
-                                    <Input type="radio" id="Self" name="fav_language" value="Self" />
-                                    <Label for="Self">Self</Label>
+                                <Col md={4}>
+                                    <Label>Profile creator:</Label>
+                                    <Input type="select" 
+                                    name='profile_creator' value={form.profile_creator}
+                                    onChange={handleChange}
+                                    >
+                                        <option>Please Select...</option>
+                                        <option>Self</option>
+                                        <option>Parent</option>
+                                        <option>Friend</option>
+                                        <option>Brother / Sister</option>
+                                        <option>Relative</option>
+                                    </Input>
                                 </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Parent" name="fav_language" value="Parent" />
-                                    <Label for="Parent">Parent</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Friend" name="fav_language" value="Friend" />
-                                    <Label for="Friend">Friend</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Brother / Sister" name="fav_language" value="Brother / Sister" />
-                                    <Label for="Brother / Sister">Brother / Sister</Label>
-                                </Col>
-                                <Col md={3}>
-                                    <Input type="radio" id="Relative" name="fav_language" value="Relative" />
-                                    <Label for="Relative">Relative</Label>
-                                </Col>
-
                                 <h3 className='mt-3'>In your own words</h3>
-                                <hr />
                                 <Col md={4}>
                                     <Label>Your profile heading:</Label>
-                                    <Input type='text' />
+                                    <Input type='text' 
+                                    name='your_profile_heading' value={form.your_profile_heading}
+                                    onChange={handleChange}
+                                    />
                                 </Col>
                                 <Col md={4}>
                                     <Label>A little about yourself:</Label>
-                                    <Input type='text' />
+                                    <Input type='text' 
+                                    name='a_little_about_yourself' value={form.a_little_about_yourself}
+                                    onChange={handleChange}
+                                    />
                                 </Col>
                                 <Col md={4}>
                                     <Label>What you're looking for in a partner:</Label>
-                                    <Input type='text' />
+                                    <Input type='text' 
+                                    name='what_you_are_looking_for_in_a_partner' value={form.what_you_are_looking_for_in_a_partner}
+                                    onChange={handleChange}
+                                   />
                                 </Col>
-                                <center><Button className='mt-3' style={{ width: "10rem" }}>Submit</Button></center>
+                                <center><Button className='mt-3' style={{ width: "10rem" }}
+                                onClick={handleAdd}
+                                >Submit</Button></center>
                             </Row>
                         </CardBody>
                     </Row>

@@ -57,7 +57,7 @@ export default function Home() {
               >
                 <h1 className="dp-name">
                   <img src={ngd} className="dp" alt="profile" /> Khalifa Shuaibu
-                </h1>
+                </h1>     
               </DropdownToggle>
               <DropdownMenu className="shadow" style={{ border: "none" }}>
                 <div className="drop-p">
