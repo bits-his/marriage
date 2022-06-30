@@ -22,7 +22,8 @@
 
 .nav-list {
     list-style-type: none;
-    display: inline;
+    display: inline-block;
+    margin-top: 20px;
 }
 
 .l {
@@ -39,14 +40,14 @@ li:hover {
 }
 
 .nav-bar {
-   
+
     background-color: rgb(225, 141, 126);
     margin: 0;
     padding: 0;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.05);
     position: fixed;
     z-index: 100;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin: auto;
     width: 100%;
     left: 0;
@@ -88,7 +89,7 @@ li:hover {
 .navbar-row {
     margin-left: 1%;
     /* margin-top: 0.75%; */
-    margin-bottom: 0.75%;
+    /* margin-bottom: 0.75%; */
 
 }
 
@@ -96,7 +97,8 @@ li:hover {
     text-align: center;
     margin-top: 15px;
 }
-.nav-list a{
+
+.nav-list a {
     text-decoration: none;
     color: var(--white)
 }
@@ -118,25 +120,63 @@ li:hover {
     /* z-index: -1; */
     margin-top: 900px;
 }
-.shado{
+
+.shado {
     width: 80rem;
     margin-left: 1rem;
 }
-.non{
+
+.non {
     border: none;
 }
-.circul{
+
+.circul {
     display: flex;
     justify-content: space-between;
     margin-right: 100rem;
     margin-bottom: rem;
-    
+
 }
-.profile{
+
+.profile {
     width: 50px;
     border-radius: 50%;
-    padding-top: 5px;
+    /* margin-top: 5px; */
+    margin-top: 6px;
+    margin-bottom: 6px;
+    margin-left: 3px;
 }
-.img1:hover{
-    background-color: rgb(125, 34, 43);
+
+.img1:hover {
+    background-color: rgb(251, 174, 182);
+    border-radius: 30px;
+}
+
+.dp-name {
+    /* float: right; */
+    padding-left: 15%;
+    font-size: 12px;
+    margin-right: 35px;
+    padding-left: 3px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-top: 7px;
+}
+
+.dp {
+    width: 40px;
+    border-radius: 50px;
+}
+
+.dp-name:hover {
+    background-image: linear-gradient(to bottom right, #ca8476, #ffffff);
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.drop-p:hover {
+    background-color: #ca8476;
 }
