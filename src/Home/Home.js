@@ -1,22 +1,20 @@
 
 import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Col, Row } from "reactstrap";
 import ngd from "./ngd.jpg"
 
 import "./navbar.css";
 
 export default function Home() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <div>
       <div className="nav-bar">
         <Row className="navbar-row">
           <Col md={2} className="nav-items">
-            {/* <img src={logo} alt="sRecord" className="ln-logo" /> */}
             <ul className="nav-list">
               <a href="#features">
-                {/* <li className="l">Dating Site</li> */}
               </a>
             </ul>
           </Col>
@@ -42,7 +40,7 @@ export default function Home() {
           </Col>
           <Col md={3} className="div">
             <div className="img1">
-              <img src={ngd} className='profile' />
+              <img src={ngd} className='profile' alt="profile" />
               <p style={{ display: 'inline', color: 'white' }}>{' '}Nagudun waka</p>
             </div>
           </Col>

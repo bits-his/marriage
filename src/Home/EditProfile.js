@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react'
-import { Card, CardBody, Col, Container, Input, Label, Row, Button, FormGroup } from 'reactstrap'
-import EditProfileSideBar from './EditProfileSideBar'
-import states from "../states";
+import { Card, CardBody, Col, Container, Input, Label, Row, Button } from 'reactstrap'
+// import EditProfileSideBar from './EditProfileSideBar'
+// import states from "../states";
 import localGoverment from "../localGoverment";
 
 export default function EditProfile() {
@@ -13,17 +13,17 @@ export default function EditProfile() {
 
 
     const [form, setForm] = useState(_form)
-    const [data, useData] = useState([])
+    // const [data, useData] = useState([])
     const [LGAs, setLGAs] = useState([])
 
-    const [open, setOpen] = useState(false);
-    const toggle = () => {
-        setOpen(!open);
-    };
-    const [open1, setOpen1] = useState(false);
-    const toggle1 = () => {
-        setOpen1(!open1);
-    };
+    // const [open, setOpen] = useState(false);
+    // // const toggle = () => {
+    //     setOpen(!open);
+    // };
+    // const [open1, setOpen1] = useState(false);
+    // const toggle1 = () => {
+    //     setOpen1(!open1);
+    // };
 
 
     const handleChange = ({ target: { name, value } }) =>

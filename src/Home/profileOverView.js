@@ -1,13 +1,13 @@
 import React from 'react'
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { User } from 'react-feather';
+// import { User } from 'react-feather';
 import { Card, CardBody, CardHeader, Col,   Row,  } from "reactstrap";
 import "./navbar.css";
 
 
 export default function profileOverView() {
 
-  const percentage = 66;
+//   const percentage = 66;
   const value = 0.66;
     return (
         <div>

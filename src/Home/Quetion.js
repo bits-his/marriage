@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Card, CardBody, CardHeader, CardText, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Input, Label, Button, Row, UncontrolledDropdown, } from "reactstrap";
+import { Card, Col, Input, Label, Button, Row, } from "reactstrap";
 
-import states from "../states";
+// import states from "../states";
 import localGoverment from "../localGoverment";
 
 
@@ -19,20 +19,20 @@ function Quetion() {
   }
 
   const [form, setForm] = useState(_form)
-  const [data, useData] = useState([])
+  // const [data, useData] = useState([])
   const [LGAs, setLGAs] = useState([])
 
   const handleChange = ({ target: { name, value } }) =>
     setForm((p) => ({ ...p, [name]: value }));
 
-  const [open, setOpen] = useState(false);
-  const toggle = () => {
-    setOpen(!open);
-  };
-  const [open1, setOpen1] = useState(false);
-  const toggle1 = () => {
-    setOpen1(!open1);
-  };
+  // const [open, setOpen] = useState(false);
+  // const toggle = () => {
+  //   setOpen(!open);
+  // };
+  // const [open1, setOpen1] = useState(false);
+  // const toggle1 = () => {
+  //   setOpen1(!open1);
+  // };
 
   return (
     <div>

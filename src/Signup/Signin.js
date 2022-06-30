@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import "./sign.css"
-import ngd from './ngd.jpg';
+// import ngd from './ngd.jpg';
 
-import { Card, CardBody, Container, Row, Col, Input, Label, Button } from "reactstrap"
+import { Card, Row, Col, Input, Button } from "reactstrap"
 
 function Signin() {
 
@@ -14,7 +14,7 @@ function Signin() {
   }
 
   const [form, setForm] = useState(_form)
-  const [data, setData] = useState([])
+  // const [data, setData] = useState([])
 
   const handleChange = ({ target: { name, value } }) =>
     setForm((p) => ({ ...p, [name]: value }));
@@ -72,7 +72,7 @@ function Signin() {
 
                   <Col md={6}>
                     <span
-                      style={{ fontSize: 12, float: "right", cursor: "pointer", 
+                      style={{ float: "right", cursor: "pointer", 
                       fontSize: 12, color: 'rgb(125, 34, 43)'
                     }}
                       onClick={() => navigate("/forgotpassword")}>
@@ -85,7 +85,7 @@ function Signin() {
                     onClick={handleAdd}
                     className="mt-3 btn"
                     style={{
-                      backgroundColor: "#dc4225", width: "5rem",
+                      // backgroundColor: "#dc4225", width: "5rem",
                       border: "none", borderRadius: "5px",
                       backgroundColor: 'rgb(125, 34, 43)',
                       color: "white"

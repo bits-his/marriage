@@ -1,9 +1,9 @@
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { Card, CardBody, Container, Row, Col, Input, Label, Button } from "reactstrap"
+import { Card, Row, Col, Input, Label, Button } from "reactstrap"
 import "./sign.css"
-import ngd from './ngd.jpg';
+// import ngd from './ngd.jpg';
 
 
 
@@ -20,7 +20,7 @@ function Signin() {
   }
 
   const [form, setForm] = useState(_form)
-  const [data, setData] = useState([])
+  // const [data, setData] = useState([])
 
 
   const handleChange = ({ target: { name, value } }) =>
