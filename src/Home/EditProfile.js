@@ -52,7 +52,18 @@ export default function EditProfile() {
 
 
     const handleAdd = () => {
-    
+        fetch("http://localhost:34567/api/edit_pro_file", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(
+                form
+            )
+            // .then((response) => console.log(response))
+            // .then((err) => console.log(err))
+        }
+        )
         setData(p => ([
             ...p,
             console.log(form)
