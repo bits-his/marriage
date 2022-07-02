@@ -6,7 +6,7 @@ import { Card, CardBody, Col, Container, Input, Label, Row, Button } from 'react
 import localGoverment from "../localGoverment";
 
 export default function EditProfile() {
-
+//njjjjjjjjjj
     const _form = {
         fist_name: "",
         date_of_birth: "",
