@@ -7,7 +7,7 @@ import "./sign.css"
 
 
 
-function Signin() {
+function Signup() {
   const navigate = useNavigate()
 
   const _form = {
@@ -26,8 +26,8 @@ function Signin() {
   const handleChange = ({ target: { name, value } }) =>
     setForm((p) => ({ ...p, [name]: value }));
 
-  const handleAdd = (e) => {
-    e.preventDefault()
+  const handleAdd = () => {
+    // e.preventDefault()
     console.log(form)
     fetch("http://localhost:34567/api/sing_up", {
       method: "POST",
@@ -42,7 +42,7 @@ function Signin() {
     ).then((raw) => raw.json())
       .then(() => {
         alert("Account created successfully")
-        navigate("/homepage")
+        navigate("/home")
 
       })
 
@@ -53,7 +53,7 @@ function Signin() {
   return (
     <div className="body">
       {/* <Container style={{marginTop: "8rem"}}> */}
-      <Row className="m-0 p-0">
+      <Row className="m-0 p-0 backgron">
         <Col md={6} className="left">
           {/* <h1 className="">Datin Site</h1> */}
         </Col>
@@ -134,7 +134,10 @@ function Signin() {
                         Logn In
                       </span> here!</p>
                     <Button
-                      onClick={handleAdd}
+                      onClick={() => {
+                        handleAdd()
+                        navigate('/home')
+                      }}
                       className=" s-btn"
                       style={{
                         width: "6rem",
@@ -157,4 +160,4 @@ function Signin() {
     </div>
   )
 }
-export default Signin;
+export default Signup;

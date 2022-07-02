@@ -1,45 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import App from './App';
-import Hqp from './Home/Hqp';
-import Registration from './Registration/Registration';
-import Signup from './Signup/Signup';
-import Signin from './Signup/Signin';
-import NavBar from './Home/NavBar';
-import ProfileOverView from './Home/profileOverView';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-circular-progressbar/dist/styles.css';
-import { 
+import {
   BrowserRouter,
-   Routes,
-   Route,
-   } from "react-router-dom";
-import Forgotpassword from './Signup/Forgotpassword';
-import EditProfile from './Home/EditProfile';
-import EditProfileSideBar from './Home/EditProfileSideBar';
-import SideBar from './Home/SideBar';
-
-
-
+} from "react-router-dom";
+import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Routes>
-      {/* <Route path="app" element={<App />} /> */}
-      <Route path="/" element={<Signup />}/>
-      <Route path="/Signin" element={<Signin />}/>
-      <Route path="/forgotpassword" element={<Forgotpassword />}/>
-      <Route path='homepage' element={<Hqp />} />
-      <Route path="navbar" element={<NavBar />} />
-      <Route path="/registration" element={<Registration />} exact/>
-      <Route path="/profileOverView" element={<ProfileOverView />} />
-      <Route path="/editprofile" element={<EditProfile />} />
-      <Route path="/editprofilesidebar" element={<EditProfileSideBar />} />
-      <Route path="/sidebar" element={<SideBar />} />
-    </Routes>
-    </BrowserRouter>  
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

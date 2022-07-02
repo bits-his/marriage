@@ -164,9 +164,14 @@ li:hover {
     margin-top: 7px;
 }
 
-.dp {
+.dp1 {
     width: 40px;
     border-radius: 50px;
+}
+.dp1 {
+    width: 80px;
+    /* height: 2\40px; */
+    border-radius: 45px;
 }
 
 .dp-name:hover {
@@ -179,4 +184,9 @@ li:hover {
 
 .drop-p:hover {
     background-color: #ca8476;
+}
+.edit-pro-label{
+    color: #ca8476;
+    font-weight: bold;
+    font-size: 13px;
 }

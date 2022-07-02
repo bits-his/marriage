@@ -1,104 +1,133 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {
-  Col,
-  Dropdown,
-  DropdownMenu,
-  DropdownToggle,
-  Row,
-} from "reactstrap";
+import { Card, Col, Input, Label, Button, Row, Dropdown, DropdownToggle, DropdownMenu, } from "reactstrap";
+import { CircularProgressbar } from 'react-circular-progressbar';
+// import { User } from 'react-feather';
+import { CardBody, CardHeader } from "reactstrap";
+import "./navbar.css";
 import ngd from "./ngd.jpg";
 
-import "./navbar.css";
+// import states from "../states";
+import localGoverment from "../localGoverment";
+
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
-  const dropdown = () => {
-    setOpen(!open);
-  };
-  const navigate = useNavigate();
-  return (
-    <div>
-      <div className="nav-bar">
-        <Row className="navbar-row">
-          <Col md={1} className="nav-items">
-            <p>Logo</p>
-          </Col>
-          <Col md={8} className="nav-items">
-            <ul className="nav-list">
-              <a href="#features">
-                <li className="l">66778</li>
-              </a>
+    const _form = {
+        search: "",
+        seeking: "",
+        age: "",
+        country: "",
+        stateProvince: "",
+        city: "",
+        within: "",
+        im: ""
+    }
 
-              <a href="#subscribe">
-                <li className="l">Matches</li>
-              </a>
-              <a href="#contact">
-                <li className="l">Search</li>
-              </a>
-              <a href="#contact">
-                <li className="l">Message</li>
-              </a>
-              <a href="#contact">
-                <li className="l">Activity</li>
-              </a>
-            </ul>
-          </Col>
-          <Col md={2} className="div">
-            {/* <div className="img1">
-              <img src={ngd} className="profile" />
-              <p style={{ display: "inline", color: "white" }}> Nagudun waka</p>
-            </div> */}
-            <Dropdown isOpen={open} toggle={dropdown}>
-              <DropdownToggle
-                data-toggle="dropdown"
-                tag="span"
-                onClick={dropdown}
-              >
-                <h1 className="dp-name">
-                  <img src={ngd} className="dp" alt="profile" /> Khalifa Shuaibu
-                </h1>     
-              </DropdownToggle>
-              <DropdownMenu className="shadow" style={{ border: "none" }}>
-                <div className="drop-p">
-                  <p style={{ cursor: "pointer", margin: 8 }}>
-                    view Profile
-                  </p>
-                </div>
-                <div className="drop-p">
-                  <p style={{ cursor: "pointer", margin: 8 }} 
-                  onClick={() => navigate("/editprofile")}>
-                    
-                    Edit Profile
-                  </p>
-                </div>
-                <div className="drop-p">
-                  <p style={{ cursor: "pointer", margin: 8 }}>
-                    Photos
-                  </p>
-                </div>
-                <div className="drop-p">
-                  <p style={{ cursor: "pointer", margin: 8 }}>
-                    Matches
-                  </p>
-                </div>
-                <div className="drop-p">
-                  <p style={{ cursor: "pointer", margin: 8 }}>
-                    Verify Profile
-                  </p>
-                </div>
-                <div className="drop-p">
-                  <p style={{ cursor: "pointer", margin: 8 }} >
-                    Switch Off Profile
-                  </p>
-                </div>
+    const [form, setForm] = useState(_form)
+    // const [data, useData] = useState([])
+    const [LGAs, setLGAs] = useState([])
 
-              </DropdownMenu>
-            </Dropdown>
-          </Col>
-          <Col md={1}></Col>
-        </Row>
-      </div>
-    </div>
-  );
+    const handleChange = ({ target: { name, value } }) =>
+        setForm((p) => ({ ...p, [name]: value }));
+
+    const value = 0.66;
+    return (
+        <div className="mt-3">
+
+            <div style={{position:'relative'}}>
+                <Card>
+                    <CardHeader style={{height: "10em"}}>
+                        <Row>
+                            <Col md={6}>
+                                <h1 className="dp-name">
+                                    <img src={ngd} className="dp1" alt="profile" />
+                                </h1>
+                            </Col>
+                            <Col md={6} className="mt-3">
+                                <div style={{ width: "20rem", height: "20", displayFlex: 20 }} className="circul">
+                                    <Col md={2}><CircularProgressbar value={66} /></Col>
+                                    <Col md={2}><CircularProgressbar value={value} maxValue={2} text={`${value * 100}%`} /></Col>
+                                    <Col md={2}><CircularProgressbar value={value} maxValue={3} text={`${value * 100}%`} /></Col>
+                                    <Col md={2}><CircularProgressbar value={value} maxValue={2} text={`${value * 100}%`} /></Col>
+                                    <Col md={2}><CircularProgressbar value={value} maxValue={1} text={`${value * 100}%`} /></Col>
+                                </div>
+                            </Col>
+                        </Row>
+                    </CardHeader>
+                    <CardBody style={{ height: "10em" }}>
+
+                    </CardBody>
+                </Card>
+            </div>
+            <div style={{position:'absolute', top:210}}>
+                <div>
+                    <Card className="shadow shado p-3" >
+                        <Row>
+                            <Col md={2}>
+                                <Label>I'm</Label>
+                                <Input type="select" name="im" value={form.im} onChange={handleChange}>
+                                    <option>Any</option>
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                </Input>
+                            </Col>
+                            <Col md={2}>
+                                <Label>Seeking</Label>
+                                <Input type="select" name="seeking" value={form.seeking} onChange={handleChange}>
+                                    <option>Any</option>
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                </Input>
+                            </Col>
+                            <Col md={1}>
+                                <Label>Age</Label>
+                                <Input type="select" name="age" value={form.age} onChange={handleChange}>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                </Input>
+                            </Col>
+
+                            <Col md={2}>
+                                <Label>State/Province</Label>
+                                <Input type="select" name="stateProvince" value={form.stateProvince}
+                                    onChange={({ target: { value } }) => {
+                                        setForm(p => ({ ...p, stateProvince: value }))
+                                        let selected = localGoverment.find(a => a.state === value)
+                                        setLGAs(selected.lgas)
+                                    }}>
+                                    <option >Any State</option>
+                                    {localGoverment.map(item => <option>{item.state}</option>)}
+
+                                </Input>
+                            </Col>
+                            <Col md={2}>
+                                <Label>City</Label>
+                                <Input type="select" name="city" value={form.city} onChange={handleChange}>
+                                    <option>Any City</option>
+                                    {LGAs.map(item => <option>{item}</option>)}
+                                </Input>
+                            </Col>
+                            <Col md={1}>
+                                <Label>Within</Label>
+                                <Input type="text" placeholder="Kms" name="within" value={form.within} onChange={handleChange} />
+                            </Col>
+                            <Col md={2}>
+                                <Button className="mt-4">Search</Button>
+                            </Col>
+                        </Row>
+                    </Card>
+                </div>
+            </div>
+
+        </div>
+    )
 }

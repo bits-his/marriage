@@ -8,7 +8,11 @@ import localGoverment from "../localGoverment";
 export default function EditProfile() {
 
     const _form = {
-        your_basics: "",
+        fist_name: "",
+        date_of_birth: "",
+        im_a: "",
+        state_province: "",
+        city: "",
         hair_color: "",
         eye_color: "",
         height: "",
@@ -22,7 +26,7 @@ export default function EditProfile() {
         marital_status: "",
         Do_you_have_children: "",
         number_of_children: "",
-        oldest_child:  "",
+        oldest_child: "",
         Do_you_want_more_children: "",
         occupation: "",
         employement_status: "",
@@ -47,7 +51,7 @@ export default function EditProfile() {
     }
 
     const [form, setForm] = useState(_form)
-    const [data, setData] = useState([])
+    // const [data, setData] = useState([])
     const [LGAs, setLGAs] = useState([])
 
 
@@ -59,16 +63,11 @@ export default function EditProfile() {
             },
             body: JSON.stringify(
                 form
-            )
-            // .then((response) => console.log(response))
-            // .then((err) => console.log(err))
-        }
-        )
-        setData(p => ([
-            ...p,
-            console.log(form)
+            )})
+        .then((raw) => raw.json())
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err))
 
-        ]))
         setForm(_form)
     }
 
@@ -89,8 +88,8 @@ export default function EditProfile() {
     return (
         <div>
             <Container>
-                <Card>
-                    <Row>
+                <Card className='mt-3 p-3'>
+                    <Row >
                         <CardBody>
                             <Row>
                                 <h3>Edit Profile</h3>
@@ -100,16 +99,18 @@ export default function EditProfile() {
                                 <h3>Your Basics</h3>
                                 <hr />
                                 <Col md={6}>
-                                    <Label>First Name</Label>
+                                    <Label className='edit-pro-label'>First Name</Label>
                                     <Input type='text' 
-                                    name='firstName' value={form.firstName}
+                                    name='fist_name' value={form.fist_name}
+                                    onChange={handleChange}
                                     />
                                 </Col>
                                 <Col md={6}></Col>
                                 <Col md={6}>
-                                    <Label>Date Of Birth:</Label>
+                                    <Label className='edit-pro-label'>Date Of Birth:</Label>
                                     <Input type='date' 
-                                    name='dateOfBirth' value={form.dateOfBirth}
+                                    name='date_of_birth' value={form.date_of_birth}
+                                    onChange={handleChange}
                                     />
                                 </Col>
                                 <Col md={2}>
@@ -119,20 +120,23 @@ export default function EditProfile() {
                                     * To protect your privacy we only store your month and year of birth
                                 </Col>
                                 <Col md={6}>
-                                    <Label>I'm a:</Label>
-                                    <Input type='text' />
+                                    <Label className='edit-pro-label'>I'm a:</Label>
+                                    <Input type='text' 
+                                    name='im_a' value={form.im_a}
+                                    onChange={handleChange}
+                                    />
                                 </Col>
                                 <Col md={3}>
                                     <Button className='mt-4'>Change</Button>
                                 </Col>
                                 <Col md={3}></Col>
                                 {/* <Col md={4}>
-                                    <Label>Country</Label>
+                                    <Label className='edit-pro-label'>Country</Label>
                                     <Input type='select' />
                                 </Col> */}
                                 <Col md={6}>
-                                    <Label>State/Province</Label>
-                                    <Input type="select" name="stateProvince" value={form.stateProvince}
+                                    <Label className='edit-pro-label'>State/Province</Label>
+                                    <Input type="select" name="state_province" value={form.state_province}
                                         onChange={({ target: { value } }) => {
                                             setForm(p => ({ ...p, stateProvince: value }))
                                             let selected = localGoverment.find(a => a.state === value)
@@ -144,8 +148,9 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={6}>
-                                    <Label>City</Label>
-                                    <Input type="select" name="city" value={form.city} onChange={handleChange}>
+                                    <Label className='edit-pro-label'>City</Label>
+                                    <Input type="select" name="city" value={form.city} onChange={handleChange}
+                                    >
                                         <option>Any City</option>
                                         {LGAs.map(item => <option>{item}</option>)}
                                     </Input>
@@ -154,7 +159,7 @@ export default function EditProfile() {
                                 <h3 className='mt-3'>Your Appearance</h3>
                                 <hr />
                                 <Col md={4}>
-                                    <Label>Hair color:</Label>
+                                    <Label className='edit-pro-label'>Hair color:</Label>
                                     <Input type="select" 
                                     name='hair_color' value={form.hair_color}
                                     onChange={handleChange}
@@ -174,12 +179,12 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Eye color:</Label>
+                                    <Label className='edit-pro-label'>Eye color:</Label>
                                     <Input type="select" 
                                     name='eye_color' value={form.eye_color}
                                     onChange={handleChange}
                                     >
-                                        <option>Please Select...</option>
+                                         <option>Please Select...</option>
                                         <option>Black</option>
                                         <option>Blue</option>
                                         <option>Brown</option>
@@ -192,7 +197,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Height:</Label>
+                                    <Label className='edit-pro-label'>Height:</Label>
                                     <Input type='select'
                                     name='height' value={form.height}
                                     onChange={handleChange}
@@ -214,7 +219,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Weight:</Label>
+                                    <Label className='edit-pro-label'>Weight:</Label>
                                     <Input type='select' 
                                     name='weight' value={form.weight}
                                     onChange={handleChange}
@@ -236,7 +241,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Body type:</Label>
+                                    <Label className='edit-pro-label'>Body type:</Label>
                                     <Input type="select" 
                                     name='body_type' value={form.body_type}
                                     onChange={handleChange}
@@ -256,7 +261,7 @@ export default function EditProfile() {
 
 
                                 <Col md={4}>
-                                    <Label>Your ethnicity is mostly:</Label>
+                                    <Label className='edit-pro-label'>Your ethnicity is mostly:</Label>
                                     <Input type="select" 
                                     name='Your_ethnicity_is_mostly' value={form.Your_ethnicity_is_mostly}
                                     onChange={handleChange}
@@ -276,7 +281,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>I consider my appearance as:</Label>
+                                    <Label className='edit-pro-label'>I consider my appearance as:</Label>
                                     <Input type="select" 
                                     name='I_consider_my_appearance_as' value={form.I_consider_my_appearance_as}
                                     onChange={handleChange}
@@ -291,7 +296,7 @@ export default function EditProfile() {
                                 </Col>
                                 <h3 className='mt-3'>Your Lifestyle</h3>
 
-                                <Label>Do you drink?</Label>
+                                <Label className='edit-pro-label'>Do you drink?</Label>
                                 <Col md={4}>
                                     <Input type="select"  
                                     name='do_you_drink' value={form.do_you_drink}
@@ -306,7 +311,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Do you drink?</Label>
+                                    <Label className='edit-pro-label'>Do you drink?</Label>
                                     <Input type="select"
                                     name='do_you_smoke' value={form.do_you_smoke}
                                     onChange={handleChange}
@@ -318,7 +323,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Eating Habits:</Label>
+                                    <Label className='edit-pro-label'>Eating Habits:</Label>
                                     <Input type="select" 
                                     name='eating_habbit' value={form.eating_habbit}
                                     onChange={handleChange}
@@ -331,7 +336,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Marital Status:</Label>
+                                    <Label className='edit-pro-label'>Marital Status:</Label>
                                     <Input type="select" 
                                     name='marital_status' value={form.marital_status}
                                     onChange={handleChange}
@@ -347,7 +352,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Do you have children?</Label>
+                                    <Label className='edit-pro-label'>Do you have children?</Label>
                                     <Input type='select'
                                     name='Do_you_have_children' value={form.Do_you_have_children}
                                     onChange={handleChange}
@@ -361,7 +366,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Number of children:</Label>
+                                    <Label className='edit-pro-label'>Number of children:</Label>
                                     <Input type='select'
                                     name='number_of_children' value={form.number_of_children}
                                     onChange={handleChange}
@@ -380,7 +385,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Oldest child:</Label>
+                                    <Label className='edit-pro-label'>Oldest child:</Label>
                                     <Input type='select'
                                     name='oldest_child' value={form.oldest_child}
                                     onChange={handleChange}
@@ -408,7 +413,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Youngest child:</Label>
+                                    <Label className='edit-pro-label'>Youngest child:</Label>
                                     <Input type='select'>
                                         <option>Please Select...</option>
                                         <option>1</option>
@@ -434,7 +439,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Do you want (more) children?</Label>
+                                    <Label className='edit-pro-label'>Do you want (more) children?</Label>
                                     <Input type="select" 
                                     name='Do_you_want_more_children' value={form.Do_you_want_more_children}
                                     onChange={handleChange}
@@ -446,7 +451,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Occupation:</Label>
+                                    <Label className='edit-pro-label'>Occupation:</Label>
                                     <Input type='select' 
                                     name='occupation' value={form.occupation}
                                     onChange={handleChange}
@@ -491,7 +496,7 @@ export default function EditProfile() {
 
 
                                 <Col md={4}>
-                                    <Label>Employment status:</Label>
+                                    <Label className='edit-pro-label'>Employment status:</Label>
                                     <Input type="select" 
                                     name='employement_status' value={form.employement_status}
                                     onChange={handleChange}
@@ -509,7 +514,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Annual Income:</Label>
+                                    <Label className='edit-pro-label'>Annual Income:</Label>
                                     <Input type='select' 
                                     name='annual_income' value={form.annual_income}
                                     onChange={handleChange}
@@ -523,7 +528,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>change currency</Label>
+                                    <Label className='edit-pro-label'>change currency</Label>
                                     <Input type='select'>
                                         <option>Please Select...</option>
                                         <option></option>
@@ -536,7 +541,7 @@ export default function EditProfile() {
 
 
                                 <Col md={4}>
-                                    <Label>Living situation:</Label>
+                                    <Label className='edit-pro-label'>Living situation:</Label>
                                     <Input type="select" 
                                     name='living_situation' value={form.living_situation}
                                     onChange={handleChange}
@@ -552,7 +557,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Willing to relocate:</Label>
+                                    <Label className='edit-pro-label'>Willing to relocate:</Label>
                                     <Input type="select"
                                     name='willing_to_relocate' value={form.willing_to_relocate}
                                     onChange={handleChange}
@@ -565,7 +570,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Relationship you're looking for:</Label>
+                                    <Label className='edit-pro-label'>Relationship you're looking for:</Label>
                                     <Input type="select" 
                                     name='relationship_you_are_looking_for' value={form.relationship_you_are_looking_for}
                                     onChange={handleChange}
@@ -581,7 +586,7 @@ export default function EditProfile() {
                                 <h3 className='mt-3'>Your Background / Cultural Values</h3>
 
                                 <Col md={4}>
-                                    <Label>Education:</Label>
+                                    <Label className='edit-pro-label'>Education:</Label>
                                     <Input type='select' 
                                     name='education' value={form.education}
                                     onChange={handleChange}
@@ -597,7 +602,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Languages spoken:</Label>
+                                    <Label className='edit-pro-label'>Languages spoken:</Label>
                                     <Input type='select' 
                                     name='language_spoken' value={form.language_spoken}
                                     onChange={handleChange}
@@ -613,7 +618,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Religion:</Label>
+                                    <Label className='edit-pro-label'>Religion:</Label>
                                     <Input type='select'
                                     name='religion' value={form.religion}
                                     onChange={handleChange}
@@ -631,7 +636,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Born / Reverted:</Label>
+                                    <Label className='edit-pro-label'>Born / Reverted:</Label>
                                     <Input type="select" 
                                     name='born_reverted' value={form.born_reverted}
                                     onChange={handleChange}
@@ -645,7 +650,7 @@ export default function EditProfile() {
 
 
                                 <Col md={4}>
-                                    <Label>Religious values:</Label>
+                                    <Label className='edit-pro-label'>Religious values:</Label>
                                     <Input type="select"
                                     name='religious_value' value={form.religious_value}
                                     onChange={handleChange}
@@ -658,7 +663,7 @@ export default function EditProfile() {
 
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Attend religious services:</Label>
+                                    <Label className='edit-pro-label'>Attend religious services:</Label>
                                     <Input type="select" 
                                     name='attend_religious_service' value={form.attend_religious_service}
                                     onChange={handleChange}
@@ -672,7 +677,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Read Qur'an:</Label>
+                                    <Label className='edit-pro-label'>Read Qur'an:</Label>
                                     <Input type="select" 
                                     name='read_Qur_an' value={form.read_Qur_an}
                                     onChange={handleChange}
@@ -690,7 +695,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Polygamy:</Label>
+                                    <Label className='edit-pro-label'>Polygamy:</Label>
                                     <Input type="select" 
                                     name='polygamy' value={form.polygamy}
                                     onChange={handleChange}
@@ -702,7 +707,7 @@ export default function EditProfile() {
                                     </Input>
                                 </Col>
                                 <Col md={4}>
-                                    <Label>Family values:</Label>
+                                    <Label className='edit-pro-label'>Family values:</Label>
                                     <Input type="select" 
                                     name='family_value' value={form.family_value}
                                     onChange={handleChange}
@@ -716,7 +721,7 @@ export default function EditProfile() {
                                 </Col>
 
                                 <Col md={4}>
-                                    <Label>Profile creator:</Label>
+                                    <Label className='edit-pro-label'>Profile creator:</Label>
                                     <Input type="select" 
                                     name='profile_creator' value={form.profile_creator}
                                     onChange={handleChange}
@@ -731,21 +736,21 @@ export default function EditProfile() {
                                 </Col>
                                 <h3 className='mt-3'>In your own words</h3>
                                 <Col md={4}>
-                                    <Label>Your profile heading:</Label>
+                                    <Label className='edit-pro-label'>Your profile heading:</Label>
                                     <Input type='text' 
                                     name='your_profile_heading' value={form.your_profile_heading}
                                     onChange={handleChange}
                                     />
                                 </Col>
                                 <Col md={4}>
-                                    <Label>A little about yourself:</Label>
+                                    <Label className='edit-pro-label'>A little about yourself:</Label>
                                     <Input type='text' 
                                     name='a_little_about_yourself' value={form.a_little_about_yourself}
                                     onChange={handleChange}
                                     />
                                 </Col>
                                 <Col md={4}>
-                                    <Label>What you're looking for in a partner:</Label>
+                                    <Label className='edit-pro-label'>What you're looking for in a partner:</Label>
                                     <Input type='text' 
                                     name='what_you_are_looking_for_in_a_partner' value={form.what_you_are_looking_for_in_a_partner}
                                     onChange={handleChange}

@@ -8,6 +8,9 @@
     background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
     opacity: .6;
 }
+.backgron{
+    background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+}
 .signup{
     color: rgb(125, 34, 43);
     border: none;
@@ -30,11 +33,12 @@
 }
 
 .signin-card {
-    position: absolute;
-    top: 7%;
+    position: relative;
+    top: 13%;
     border-radius: 150px;
     background-image: linear-gradient(to bottom right, #ca8476,#ffffff);
     color:white;
+    /* margin-right: 20px; */
 }
 .s-btn{
     background-color: rgb(125, 34, 43);
