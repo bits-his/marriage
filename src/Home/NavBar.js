@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux'
 import {
   Col,
   Dropdown,
@@ -12,6 +13,7 @@ import ngd from "./ngd.jpg";
 import "./navbar.css";
 
 export default function Navbar() {
+  const user = useSelector(state => state.auth.user)
   const [open, setOpen] = useState(false);
   const dropdown = () => {
     setOpen(!open);
@@ -26,22 +28,18 @@ export default function Navbar() {
           </Col>
           <Col md={8} className="nav-items">
             <ul className="nav-list">
-              <a href="#features">
-                <li className="l">66778</li>
-              </a>
 
-              <a href="#subscribe">
-                <li className="l">Matches</li>
-              </a>
-              <a href="#contact">
-                <li className="l">Search</li>
-              </a>
-              <a href="#contact">
-                <li className="l">Message</li>
-              </a>
-              <a href="#contact">
-                <li className="l">Activity</li>
-              </a>
+              <li className="l">66778</li>
+
+              <li className="l">Matches</li>
+
+              <li className="l">Search</li>
+
+
+              <li className="l">Message</li>
+
+              <li className="l">Activity</li>
+
             </ul>
           </Col>
           <Col md={2} className="div">
@@ -56,19 +54,20 @@ export default function Navbar() {
                 onClick={dropdown}
               >
                 <h1 className="dp-name">
-                  <img src={ngd} className="dp" alt="profile" /> Khalifa Shuaibu
-                </h1>     
+                  <img src={ngd} className="dp" alt="profile" /> {user.username}
+                </h1>
               </DropdownToggle>
               <DropdownMenu className="shadow" style={{ border: "none" }}>
                 <div className="drop-p">
-                  <p style={{ cursor: "pointer", margin: 8 }}>
+                  <p style={{ cursor: "pointer", margin: 8 }}
+                    onClick={() => navigate("/view-profile")}>
                     view Profile
                   </p>
                 </div>
                 <div className="drop-p">
-                  <p style={{ cursor: "pointer", margin: 8 }} 
-                  onClick={() => navigate("/edit-profile")}>
-                    
+                  <p style={{ cursor: "pointer", margin: 8 }}
+                    onClick={() => navigate("/edit-profile")}>
+
                     Edit Profile
                   </p>
                 </div>

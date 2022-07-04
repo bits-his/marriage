@@ -1,14 +1,23 @@
 
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Card, CardBody, Col, Container, Input, Label, Row, Button } from 'reactstrap'
 // import EditProfileSideBar from './EditProfileSideBar'
 // import states from "../states";
 import localGoverment from "../localGoverment";
 
 export default function EditProfile() {
-//njjjjjjjjjj
+    const user = useSelector(state => state.auth.user)
     const _form = {
-        fist_name: "",
+        id: "",
+        username: "",
+        email: "",
+        password: "",
+        create_datetime: "",
+        i_m_a: "",
+        i_m_looking_for: "",
+        age: "",
+        first_name: "",
         date_of_birth: "",
         im_a: "",
         state_province: "",
@@ -27,27 +36,29 @@ export default function EditProfile() {
         Do_you_have_children: "",
         number_of_children: "",
         oldest_child: "",
+        youngest_child: "",
         Do_you_want_more_children: "",
         occupation: "",
         employement_status: "",
         annual_income: "",
+        change_currency: "",
         living_situation: "",
         willing_to_relocate: "",
         relationship_you_are_looking_for: "",
-        your_background: "",
         education: "",
         language_spoken: "",
         religion: "",
         born_reverted: "",
         religious_value: "",
         attend_religious_service: "",
-        read_Qur_an: "",
+        read_Quran: "",
         polygamy: "",
         family_value: "",
         profile_creator: "",
         your_profile_heading: "",
         a_little_about_yourself: "",
-        what_you_are_looking_for_in_a_partner: ""
+        what_you_are_looking_for_in_a_partner: "",
+        _query_type: "updateprofile",
     }
 
     const [form, setForm] = useState(_form)
@@ -62,7 +73,7 @@ export default function EditProfile() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(
-                form
+                {...form, id: user.id}
             )})
         .then((raw) => raw.json())
         .then((response) => console.log(response))
@@ -104,6 +115,7 @@ export default function EditProfile() {
                                     name='fist_name' value={form.fist_name}
                                     onChange={handleChange}
                                     />
+                                    {JSON.stringify(user)}
                                 </Col>
                                 <Col md={6}></Col>
                                 <Col md={6}>
@@ -114,20 +126,20 @@ export default function EditProfile() {
                                     />
                                 </Col>
                                 <Col md={2}>
-                                    <Button className='mt-4'>Change</Button>
+                                    <Button className='mt-4 edit-pro-label1'>Change</Button>
                                 </Col>
                                 <Col md={4}>
                                     * To protect your privacy we only store your month and year of birth
                                 </Col>
                                 <Col md={6}>
-                                    <Label className='edit-pro-label'>I'm a:</Label>
+                                    <Label className='edit-pro-label edit-pro-label'>I'm a:</Label>
                                     <Input type='text' 
                                     name='im_a' value={form.im_a}
                                     onChange={handleChange}
                                     />
                                 </Col>
                                 <Col md={3}>
-                                    <Button className='mt-4'>Change</Button>
+                                    <Button className='mt-4 edit-pro-label1'>Change</Button>
                                 </Col>
                                 <Col md={3}></Col>
                                 {/* <Col md={4}>
@@ -520,7 +532,7 @@ export default function EditProfile() {
                                     onChange={handleChange}
                                     >
                                         <option>Please Select...</option>
-                                        <option></option>
+                                        <option>Prefer not to say</option>
                                         <option></option>
                                         <option></option>
                                         <option></option>
@@ -529,13 +541,16 @@ export default function EditProfile() {
                                 </Col>
                                 <Col md={4}>
                                     <Label className='edit-pro-label'>change currency</Label>
-                                    <Input type='select'>
+                                    <Input type='select'
+                                    name='change_currency' value={form.change_currency}
+                                   onChange={handleChange}
+                                    >
                                         <option>Please Select...</option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
-                                        <option></option>
+                                        <option>AED</option>
+                                        <option>AFN</option>
+                                        <option>ALL</option>
+                                        <option>AMD</option>
+                                        <option>ANG</option>
                                     </Input>
                                 </Col>
 
@@ -756,7 +771,7 @@ export default function EditProfile() {
                                     onChange={handleChange}
                                    />
                                 </Col>
-                                <center><Button className='mt-3' style={{ width: "10rem" }}
+                                <center><Button className='mt-3 edit-pro-label1' style={{ width: "10rem" }}
                                 onClick={handleAdd}
                                 >Submit</Button></center>
                             </Row>

@@ -4,9 +4,11 @@ import "./sign.css"
 // import ngd from './ngd.jpg';
 
 import { Card, Row, Col, Input, Button } from "reactstrap"
+import { LOGIN } from "../redux/actions/types";
+import {useDispatch} from 'react-redux'
 
 function Signin() {
-
+const dispatch = useDispatch()
   const navigate = useNavigate()
   const _form = {
     email: "",
@@ -35,7 +37,10 @@ function Signin() {
       .then((raw) => raw.json())
       .then(data => {
         if (data && data.loggedIn) {
-          navigate("/homepage")
+          dispatch({type: LOGIN, payload: data.user[0] })
+          localStorage.setItem("dating-site:user", data.user[0].id)
+          navigate("/home")
+
         } else {
           alert(data.message)
         }

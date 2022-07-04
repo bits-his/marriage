@@ -147,6 +147,7 @@ li:hover {
     margin-left: 3px;
 }
 
+
 .img1:hover {
     background-color: rgb(251, 174, 182);
     border-radius: 30px;
@@ -163,10 +164,18 @@ li:hover {
     padding-bottom: 2px;
     margin-top: 7px;
 }
+.vew-img{
+    width: 300px;
+    border-radius: 10px;
+}
 
 .dp1 {
     width: 40px;
-    border-radius: 50px;
+    border-radius: 70px;
+}
+.dp2 {
+    width: 70px;
+    border-radius: 30px;
 }
 .dp1 {
     width: 80px;
@@ -175,7 +184,7 @@ li:hover {
 }
 
 .dp-name:hover {
-    background-image: linear-gradient(to bottom right, #ca8476, #ffffff);
+    /* background-image: linear-gradient(to bottom right, #ca8476, #ffffff); */
     border-radius: 30px;
     color: white;
     cursor: pointer;
@@ -186,7 +195,44 @@ li:hover {
     background-color: #ca8476;
 }
 .edit-pro-label{
-    color: #ca8476;
+    color: #9D2AAA;;
     font-weight: bold;
     font-size: 13px;
+}
+
+.edit-pro-label1{
+    background-color: #9D2AAA;
+    font-weight: bold;
+    font-size: 13px;
+    color: white;
+}
+td,tr{
+    border:1px solid #f1f1f1;
+}
+.overview{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    font-family: "Roboto";
+    color: #424848;
+}
+.details{
+    width: 30%;
+    display: flex;
+}
+.details--1{
+    width: 30%;
+    display: flex;
+}
+.ash{
+    background:#E2E2E2;
+}
+.dork{
+     
+}
+.detext{
+    width: 100%;
+}
+.details:not(:last-child){
+    border-right: 20px solid #ffffffa9;
 }

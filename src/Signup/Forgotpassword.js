@@ -64,8 +64,9 @@ function Forgotpassword() {
                     onClick={handleAdd}
                     className="mt-3"
                     style={{
-                      backgroundColor: "#dc4225", width: "5rem",
-                      border: "none", borderRadius: "5px"
+                      backgroundColor: "rgb(125, 34, 43)", width: "5rem",
+                      border: "none", borderRadius: "5px",
+                      color: "white"
                     }}>
                     Submit
                   </Button>

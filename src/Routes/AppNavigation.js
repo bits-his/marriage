@@ -1,21 +1,28 @@
-import React from 'react'
-import { useRoutes } from 'react-router';
+import React, { useEffect } from 'react'
+import { useNavigate, useRoutes } from 'react-router';
 import Hqp from '../Home/Hqp';
 import AppIndex from './AppIndex';
 import Signup from '../Signup/Signup';
 import EditProfile from '../Home/EditProfile';
 import Signin from '../Signup/Signin';
 import Forgotpassword from '../Signup/Forgotpassword'
+import {useDispatch} from 'react-redux'
+import { initUser } from '../redux/actions/auth';
+import ViewProfile from '../Home/ViewProfile';
+
 function AppNavigation() {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    useEffect(() => {
+dispatch(initUser(() => navigate("/login")))
+    }, [])
+
     let element = useRoutes([
         {
             path: '/',
             element: <Signup />,
             children: [{ index: true },
-            // {
-            //     path: '/Signin',
-            //     element: <Signin />
-            // }
+
 
             ]
         },
@@ -31,15 +38,23 @@ function AppNavigation() {
                     element: <EditProfile />
                 },
                 {
-                    path: '/signin',
-                    element: <Signin />
+                    path: '/view-profile',
+                    element: <ViewProfile />
                 },
-                {
-                    path: '/forgotpassword',
-                    element: <Forgotpassword />
-                },
+                // {
+                //     path: '/forgotpassword',
+                //     element: <Forgotpassword />
+                // },
             ]
 
+        },
+        {
+            path: '/Signin',
+            element: <Signin />
+        },
+        {
+            path: '/forgotpassword',
+            element: <Forgotpassword />
         },
 
 

@@ -1,12 +1,15 @@
 import React from "react";
 import './index.css';
 import AppNavigation from "./Routes/AppNavigation";
+import store from './redux/store'
+import { Provider } from "react-redux";
 
 
 function App() {
   return (
     <div className="body">
-      <AppNavigation />
+      <Provider store={store}>
+      <AppNavigation /></Provider>
     </div>
   );
 }

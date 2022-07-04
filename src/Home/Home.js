@@ -4,7 +4,8 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 // import { User } from 'react-feather';
 import { CardBody, CardHeader } from "reactstrap";
 import "./navbar.css";
-import ngd from "./ngd.jpg";
+// import ngd from "./ngd.jpg";
+import ngd1 from "./ngd1.jpg";
 
 // import states from "../states";
 import localGoverment from "../localGoverment";
@@ -15,7 +16,7 @@ export default function Home() {
         search: "",
         seeking: "",
         age: "",
-        country: "",
+        country: "",  
         stateProvince: "",
         city: "",
         within: "",
@@ -39,7 +40,7 @@ export default function Home() {
                         <Row>
                             <Col md={6}>
                                 <h1 className="dp-name">
-                                    <img src={ngd} className="dp1" alt="profile" />
+                                    <img src={ngd1} className="dp2" alt="profile1" />
                                 </h1>
                             </Col>
                             <Col md={6} className="mt-3">
