@@ -220,6 +220,10 @@ td,tr{
     width: 30%;
     display: flex;
 }
+.details-1{
+    width: 30%;
+    display: flex;
+}
 .details--1{
     width: 30%;
     display: flex;
@@ -228,11 +232,18 @@ td,tr{
     background:#E2E2E2;
 }
 .dork{
-     
+    background:#e2e2e2a6;  
 }
 .detext{
     width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-left: 20px;
+    /* margin-right: 20px; */
+    /* text-align: center; */
 }
 .details:not(:last-child){
+    border-right: 20px solid #ffffffa9;
+}.details-1:not(:last-child){
     border-right: 20px solid #ffffffa9;
 }
