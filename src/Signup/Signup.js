@@ -57,7 +57,7 @@ function Signup() {
         <Col md={6} className="left">
           {/* <h1 className="">Datin Site</h1> */}
         </Col>
-        <Col md={6} className='right'>
+        <Col md={6} className='right'>           
           <Row>
             <Col md={1}></Col>
             <Col md={10}>

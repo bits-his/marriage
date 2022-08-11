@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router'
 import { Row,Col } from 'reactstrap'
-import Navbar from '../Home/Navbar'
+import Navbar from '../Home/NavBar'
 
 export default function AppIndex() {
     return (
